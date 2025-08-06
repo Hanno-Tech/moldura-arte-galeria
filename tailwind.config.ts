@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				/* MAG Custom Colors */
+				'gallery-warm': 'hsl(var(--gallery-warm))',
+				'frame-gold': 'hsl(var(--frame-gold))',
+				'text-elegant': 'hsl(var(--text-elegant))',
+			},
+			backgroundImage: {
+				'gradient-warm': 'var(--gradient-warm)',
+				'gradient-gallery': 'var(--gradient-gallery)',
+			},
+			boxShadow: {
+				'frame': 'var(--shadow-frame)',
+				'elegant': 'var(--shadow-elegant)',
+				'hover': 'var(--shadow-hover)',
+			},
+			transitionProperty: {
+				'elegant': 'var(--transition-elegant)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
