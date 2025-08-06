@@ -70,7 +70,6 @@ export default {
 				'gallery-warm': 'hsl(var(--gallery-warm))',
 				'frame-gold': 'hsl(var(--frame-gold))',
 				'text-elegant': 'hsl(var(--text-elegant))',
-				'dark-green': 'hsl(var(--dark-green))',
 			},
 			backgroundImage: {
 				'gradient-warm': 'var(--gradient-warm)',

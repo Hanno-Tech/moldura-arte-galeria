@@ -41,7 +41,6 @@ All colors MUST be HSL.
     --gallery-warm: 36 31% 88%; /* Fundo para galerias */
     --frame-gold: 45 35% 70%; /* Cor dourada para molduras */
     --text-elegant: 25 25% 25%; /* Texto principal elegante */
-    --dark-green: 120 25% 15%; /* Verde escuro para seção especial */
     
     /* Gradientes suaves */
     --gradient-warm: linear-gradient(135deg, hsl(36 31% 92%), hsl(36 20% 85%));
