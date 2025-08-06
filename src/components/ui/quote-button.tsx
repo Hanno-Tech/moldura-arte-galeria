@@ -10,9 +10,10 @@ interface QuoteButtonProps {
   artworkTitle?: string;
   className?: string;
   variant?: "default" | "outline" | "secondary";
+  children?: string;
 }
 
-export const QuoteButton = ({ artworkTitle, className, variant = "default" }: QuoteButtonProps) => {
+export const QuoteButton = ({ artworkTitle, className, variant = "default", children = "Solicitar orçamento" }: QuoteButtonProps) => {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
 
@@ -29,7 +30,7 @@ export const QuoteButton = ({ artworkTitle, className, variant = "default" }: Qu
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={variant} className={className}>
-          Solicitar orçamento
+          {children}
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
