@@ -18,28 +18,65 @@ const featuredArtworks = [
 const Home = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-gallery min-h-[80vh] flex items-center">
+      {/* Hero Section - Quatro Quadros */}
+      <section className="py-20 bg-gradient-gallery">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center mb-16">
+            <h1 className="font-playfair text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+              Parede que faz sentir
+            </h1>
+            <p className="text-lg text-muted-foreground font-inter max-w-2xl mx-auto">
+              Curadoria de arte personalizada, molduras sob medida e instalação. 
+              Do briefing ao prego, criamos experiências sensoriais únicas.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {featuredArtworks.map((artwork) => (
+              <ArtworkCard
+                key={artwork.id}
+                id={artwork.id}
+                image={artwork.image}
+                title={artwork.title}
+                artist={artwork.artist}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nova Seção Verde Escura */}
+      <section className="py-20 bg-dark-green text-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-8">
-              <h1 className="font-playfair text-5xl lg:text-6xl font-bold text-primary leading-tight">
-                Parede que
-                <br />
-                faz sentir
-              </h1>
-              <p className="text-lg text-muted-foreground font-inter max-w-md">
-                Curadoria de arte personalizada, molduras sob medida e instalação. 
-                Do briefing ao prego, criamos experiências sensoriais únicas.
-              </p>
-              <QuoteButton variant="default" className="font-inter font-medium px-8" />
+              <div>
+                <h2 className="font-playfair text-4xl font-bold mb-6">
+                  Arte que Transforma Ambientes
+                </h2>
+                <p className="text-lg leading-relaxed opacity-90 font-inter">
+                  Há 25 anos, a MAG combina tradição familiar com inovação artística. 
+                  Desenvolvemos um processo autoral único que vai do briefing inicial 
+                  até a instalação final, garantindo que cada parede conte uma história única.
+                </p>
+              </div>
+              
+              <div className="relative">
+                <div className="bg-white/10 p-6 rounded-lg">
+                  <img
+                    src={artwork3}
+                    alt="Obra em destaque"
+                    className="w-full rounded-sm shadow-frame"
+                  />
+                </div>
+              </div>
             </div>
             
             <div className="relative">
-              <div className="bg-frame-gold/20 p-8 rounded-lg">
+              <div className="bg-white/10 p-8 rounded-lg">
                 <img
-                  src={heroArtwork}
-                  alt="Arte em destaque"
+                  src={artwork2}
+                  alt="Ambientação de obra"
                   className="w-full rounded-sm shadow-frame"
                 />
               </div>
