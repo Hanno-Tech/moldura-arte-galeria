@@ -33,11 +33,11 @@ const WorkDetail = () => {
       {/* Layout com 3 colunas */}
       <section className="grid grid-cols-1 md:grid-cols-[50%_25%_25%] md:grid-rows-2 gap-8 items-start mb-10">
         {/* Coluna 1 - Imagem principal */}
-        <div className="bg-frame-gold/20 p-4 rounded-lg row-span-2 h-full">
+        <div className="bg-frame-gold/20 p-4 rounded-lg">
           <img
             src={obra.images[current]}
             alt={`${obra.title} - imagem ${current + 1}`}
-            className="w-full h-full object-cover rounded-sm shadow-frame"
+            className="w-full aspect-[4/3] object-cover rounded-sm shadow-frame"
           />
         </div>
 
