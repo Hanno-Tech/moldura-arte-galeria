@@ -1,3 +1,4 @@
+
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { artworks } from "@/data/artworks";
@@ -28,9 +29,10 @@ const WorkDetail = () => {
         <p className="text-muted-foreground font-inter">{obra.artist}</p>
       </header>
 
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        {/* Imagem principal */}
-        <div className="lg:col-span-2 bg-frame-gold/20 p-4 rounded-lg">
+      {/* Layout com 3 colunas */}
+      <section className="grid grid-cols-3 gap-8 items-start mb-10">
+        {/* Coluna 1 - Imagem principal */}
+        <div className="bg-frame-gold/20 p-4 rounded-lg">
           <img
             src={obra.images[current]}
             alt={`${obra.title} - imagem ${current + 1}`}
@@ -38,9 +40,9 @@ const WorkDetail = () => {
           />
         </div>
 
-        {/* Miniaturas */}
-        <aside className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-1 gap-4">
-          {obra.images.slice(0, 4).map((src, idx) => (
+        {/* Coluna 2 - Primeiras 2 miniaturas */}
+        <div className="grid grid-cols-1 gap-4">
+          {obra.images.slice(0, 2).map((src, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
@@ -50,23 +52,39 @@ const WorkDetail = () => {
               <img src={src} alt={`Variação ${idx + 1} de ${obra.title}`} className="w-full aspect-square object-cover rounded-sm" />
             </button>
           ))}
-        </aside>
+        </div>
+
+        {/* Coluna 3 - Últimas 2 miniaturas */}
+        <div className="grid grid-cols-1 gap-4">
+          {obra.images.slice(2, 4).map((src, idx) => (
+            <button
+              key={idx + 2}
+              onClick={() => setCurrent(idx + 2)}
+              className={`bg-frame-gold/20 p-2 rounded-md transition-transform duration-200 hover:scale-105 ${current === idx + 2 ? 'ring-2 ring-accent' : ''}`}
+              aria-label={`Mostrar variação ${idx + 3}`}
+            >
+              <img src={src} alt={`Variação ${idx + 3} de ${obra.title}`} className="w-full aspect-square object-cover rounded-sm" />
+            </button>
+          ))}
+        </div>
       </section>
 
-      {/* Descrição */}
-      <section className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <article className="lg:col-span-2">
-          <h2 className="font-playfair text-2xl text-primary mb-3">Sobre a obra</h2>
-          <p className="text-foreground/80 font-inter leading-relaxed">{obra.description}</p>
-        </article>
-        <aside className="bg-card border border-border rounded-lg p-6 shadow-elegant">
-          <p className="text-muted-foreground font-inter mb-2">Preço</p>
-          <p className="text-primary font-playfair text-3xl mb-6">R$ {obra.price.toLocaleString('pt-BR')}</p>
-          <QuoteButton variant="default" className="w-full font-inter">Pedir mais informações</QuoteButton>
-        </aside>
+      {/* Descrição e preço centralizados */}
+      <section className="max-w-2xl mx-auto text-center">
+        <div className="bg-card border border-border rounded-lg p-8 shadow-elegant">
+          <h2 className="font-playfair text-2xl text-primary mb-4">Sobre a obra</h2>
+          <p className="text-foreground/80 font-inter leading-relaxed mb-6">{obra.description}</p>
+          
+          <div className="mb-6">
+            <p className="text-muted-foreground font-inter mb-2">Preço</p>
+            <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
+          </div>
+          
+          <QuoteButton variant="default" className="font-inter">Pedir mais informações</QuoteButton>
+        </div>
       </section>
 
-      <div className="mt-8">
+      <div className="mt-8 text-center">
         <Link to="/obras" className="text-accent hover:underline font-inter">← Ver todas as obras</Link>
       </div>
     </div>
