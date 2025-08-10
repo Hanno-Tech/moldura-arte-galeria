@@ -33,19 +33,18 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // Primeiro troca as posições, depois aplica um fade-in suave
+      setFeatured((prev) => {
+        if (prev.length < 2) return prev;
+        const i = Math.floor(Math.random() * prev.length);
+        let j = Math.floor(Math.random() * prev.length);
+        if (j === i) j = (j + 1) % prev.length;
+        const next = [...prev];
+        [next[i], next[j]] = [next[j], next[i]];
+        return next;
+      });
       setIsFading(true);
-      const timeout = setTimeout(() => {
-        setFeatured((prev) => {
-          if (prev.length < 2) return prev;
-          const i = Math.floor(Math.random() * prev.length);
-          let j = Math.floor(Math.random() * prev.length);
-          if (j === i) j = (j + 1) % prev.length;
-          const next = [...prev];
-          [next[i], next[j]] = [next[j], next[i]];
-          return next;
-        });
-        setIsFading(false);
-      }, 300);
+      const timeout = setTimeout(() => setIsFading(false), 300);
       return () => clearTimeout(timeout);
     }, 4000);
 
@@ -73,7 +72,7 @@ const Home = () => {
               </QuoteButton>
             </div>
             
-            <div className={`grid grid-cols-2 gap-4 ${isFading ? 'animate-fade-out' : 'animate-fade-in'}`}>
+            <div className={`grid grid-cols-2 gap-4 ${isFading ? 'animate-fade-in' : ''}`}>
               {featured.map((artwork) => (
                 <div key={artwork.id} className="bg-frame-gold/30 p-4 rounded-lg transition-transform duration-300">
                   <img
