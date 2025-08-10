@@ -61,7 +61,7 @@ export const Footer = () => {
             <div className="space-y-2 text-primary-foreground/80 font-inter">
               <p>+55 (11) 99999-9999</p>
               <p>contato@mag.com.br</p>
-              <p>São Paulo, SP</p>
+              <p>Florianópolis, SC</p>
               <a href="#" className="block text-accent hover:text-accent/80 transition-colors mt-4">
                 WhatsApp
               </a>
@@ -71,7 +71,7 @@ export const Footer = () => {
         
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
           <p className="text-primary-foreground/60 font-inter text-sm">
-            © 2024 MAG - Moldura Arte e Galeria. Todos os direitos reservados.
+            © 2025 MAG - Moldura Arte e Galeria. Todos os direitos reservados.
           </p>
         </div>
       </div>

@@ -8,8 +8,10 @@ import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
 import artwork4 from "@/assets/artwork-4.jpg";
+import Autoplay from "embla-carousel-autoplay";
+import { useEffect, useState } from "react";
 
-const featuredArtworks = [
+const initialFeaturedArtworks = [
   { id: '1', image: artwork1, title: 'Composição VII', artist: 'Ana Silva' },
   { id: '2', image: artwork2, title: 'Serra Dourada', artist: 'Pedro Rocha' },
   { id: '3', image: artwork3, title: 'Figura com Pássaro', artist: 'Mana Souza' },
@@ -25,6 +27,35 @@ const Home = () => {
     { id: 'o5', image: artwork2, title: 'Ritmo Terracota', artist: 'Clara Nunes' },
     { id: 'o6', image: artwork3, title: 'Geometrias Suaves', artist: 'Rafael Dias' },
   ];
+  const [featured, setFeatured] = useState(initialFeaturedArtworks);
+  const [isFading, setIsFading] = useState(false);
+  const [zoomed, setZoomed] = useState<number | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      const timeout = setTimeout(() => {
+        setFeatured((prev) => {
+          if (prev.length < 2) return prev;
+          const i = Math.floor(Math.random() * prev.length);
+          let j = Math.floor(Math.random() * prev.length);
+          if (j === i) j = (j + 1) % prev.length;
+          const next = [...prev];
+          [next[i], next[j]] = [next[j], next[i]];
+          return next;
+        });
+        setIsFading(false);
+      }, 300);
+      return () => clearTimeout(timeout);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleZoom = (index: number) => {
+    setZoomed(index);
+    setTimeout(() => setZoomed(null), 700);
+  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -42,9 +73,9 @@ const Home = () => {
               </QuoteButton>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
-              {featuredArtworks.map((artwork) => (
-                <div key={artwork.id} className="bg-frame-gold/30 p-4 rounded-lg">
+            <div className={`grid grid-cols-2 gap-4 ${isFading ? 'animate-fade-out' : 'animate-fade-in'}`}>
+              {featured.map((artwork) => (
+                <div key={artwork.id} className="bg-frame-gold/30 p-4 rounded-lg transition-transform duration-300">
                   <img
                     src={artwork.image}
                     alt={artwork.title}
@@ -145,17 +176,22 @@ const Home = () => {
             Quadros em ambiente
           </h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[artwork1, artwork2, artwork3, artwork4, artwork2, artwork3].map((image, index) => (
-              <div key={index} className="bg-frame-gold/30 p-4 rounded-lg">
-                <img
-                  src={image}
-                  alt={`Quadro em ambiente ${index + 1}`}
-                  className="w-full aspect-square object-cover rounded-sm shadow-frame"
-                />
-              </div>
-            ))}
-          </div>
+          <Carousel className="w-full" opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2500, stopOnMouseEnter: true, stopOnInteraction: false })]}>
+            <CarouselContent>
+              {[artwork1, artwork2, artwork3, artwork4, artwork2, artwork3].map((image, index) => (
+                <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
+                  <div className="bg-frame-gold/30 p-4 rounded-lg">
+                    <img
+                      src={image}
+                      alt={`Quadro em ambiente ${index + 1}`}
+                      onClick={() => handleZoom(index)}
+                      className={`w-full aspect-square object-cover rounded-sm shadow-frame transition-transform duration-300 ${zoomed === index ? 'scale-110' : ''}`}
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         </div>
       </section>
 
