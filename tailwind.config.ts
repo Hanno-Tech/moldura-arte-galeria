@@ -19,7 +19,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'playfair': ['Playfair Display', 'serif'],
+				'playfair': ['Cormorant Garamond', 'serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
 			colors: {
@@ -70,6 +70,10 @@ export default {
 				'gallery-warm': 'hsl(var(--gallery-warm))',
 				'frame-gold': 'hsl(var(--frame-gold))',
 				'text-elegant': 'hsl(var(--text-elegant))',
+				'brand-green': {
+					DEFAULT: 'hsl(var(--brand-green))',
+					foreground: 'hsl(var(--brand-green-foreground))'
+				},
 			},
 			backgroundImage: {
 				'gradient-warm': 'var(--gradient-warm)',
