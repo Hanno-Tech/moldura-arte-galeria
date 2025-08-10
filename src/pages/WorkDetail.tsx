@@ -31,7 +31,7 @@ const WorkDetail = () => {
 
 
       {/* Layout com 3 colunas */}
-      <section className="grid grid-cols-3 grid-rows-2 gap-8 items-start mb-10">
+      <section className="grid grid-cols-1 md:grid-cols-[50%_25%_25%] md:grid-rows-2 gap-8 items-start mb-10">
         {/* Coluna 1 - Imagem principal */}
         <div className="bg-frame-gold/20 p-4 rounded-lg row-span-2 h-full">
           <img
@@ -42,7 +42,7 @@ const WorkDetail = () => {
         </div>
 
         {/* Coluna 2 - Primeiras 2 miniaturas */}
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-rows-2 gap-4">
           {obra.images.slice(0, 2).map((src, idx) => (
             <button
               key={idx}
@@ -56,7 +56,7 @@ const WorkDetail = () => {
         </div>
 
         {/* Coluna 3 - Últimas 2 miniaturas */}
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-rows-2 gap-4">
           {obra.images.slice(2, 4).map((src, idx) => (
             <button
               key={idx + 2}
@@ -71,7 +71,7 @@ const WorkDetail = () => {
       </section>
 
       {/* Descrição e preço centralizados */}
-      <section className="max-w-2xl mx-auto text-center">
+      <section className="w-full">
         <div className="bg-card border border-border rounded-lg p-8 shadow-elegant">
           <h2 className="font-playfair text-2xl text-primary mb-4">Sobre a obra</h2>
           <p className="text-foreground/80 font-inter leading-relaxed mb-6">{obra.description}</p>
