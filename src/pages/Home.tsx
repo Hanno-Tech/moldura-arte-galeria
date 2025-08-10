@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArtworkCard } from "@/components/ui/artwork-card";
 import { QuoteButton } from "@/components/ui/quote-button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
 import heroArtwork from "@/assets/hero-artwork.jpg";
 import artwork1 from "@/assets/artwork-1.jpg";
@@ -16,6 +17,14 @@ const featuredArtworks = [
 ];
 
 const Home = () => {
+  const obrasCarousel = [
+    { id: 'o1', image: artwork1, title: 'Composição VII', artist: 'Ana Silva' },
+    { id: 'o2', image: artwork2, title: 'Serra Dourada', artist: 'Pedro Rocha' },
+    { id: 'o3', image: artwork3, title: 'Figura com Pássaro', artist: 'Mana Souza' },
+    { id: 'o4', image: artwork4, title: 'Flores no Jardim', artist: 'Beatriz Rocha' },
+    { id: 'o5', image: artwork2, title: 'Ritmo Terracota', artist: 'Clara Nunes' },
+    { id: 'o6', image: artwork3, title: 'Geometrias Suaves', artist: 'Rafael Dias' },
+  ];
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -78,47 +87,28 @@ const Home = () => {
       {/* Obras Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-6">
-          <h2 className="font-playfair text-4xl font-bold mb-12">
-            Obras
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="space-y-4">
-              <div className="bg-frame-gold/20 p-6 rounded-lg">
-                <img
-                  src={artwork1}
-                  alt="Composição Colorida"
-                  className="w-full aspect-square object-cover rounded-sm shadow-frame"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="font-playfair text-lg font-medium mb-1">
-                  Composição Colorida
-                </h3>
-                <p className="text-primary-foreground/80 font-inter text-sm">
-                  Marta Souto
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-frame-gold/20 p-6 rounded-lg">
-                <img
-                  src={artwork3}
-                  alt="Saca Solitária"
-                  className="w-full aspect-square object-cover rounded-sm shadow-frame"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="font-playfair text-lg font-medium mb-1">
-                  Saca Solitária
-                </h3>
-                <p className="text-primary-foreground/80 font-inter text-sm">
-                  José Silva
-                </p>
-              </div>
-            </div>
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="font-playfair text-4xl font-bold">Obras</h2>
           </div>
+
+          <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+            <CarouselContent>
+              {obrasCarousel.map((obra) => (
+                <CarouselItem key={obra.id} className="basis-1/2">
+                  <ArtworkCard
+                    id={obra.id}
+                    image={obra.image}
+                    title={obra.title}
+                    artist={obra.artist}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center gap-3 mt-6">
+              <CarouselPrevious />
+              <CarouselNext />
+            </div>
+          </Carousel>
         </div>
       </section>
 
@@ -148,17 +138,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Molduras Section */}
+      {/* Quadros em Ambiente */}
       <section className="py-20 bg-gallery-warm">
         <div className="container mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold text-primary mb-12">
-            Molduras
+            Quadros em ambiente
           </h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {Array.from({ length: 6 }, (_, index) => (
-              <div key={index} className="bg-frame-gold/30 p-3 rounded-lg aspect-square">
-                <div className="w-full h-full bg-gradient-to-br from-amber-700 to-amber-900 rounded-sm shadow-frame"></div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[artwork1, artwork2, artwork3, artwork4, artwork2, artwork3].map((image, index) => (
+              <div key={index} className="bg-frame-gold/30 p-4 rounded-lg">
+                <img
+                  src={image}
+                  alt={`Quadro em ambiente ${index + 1}`}
+                  className="w-full aspect-square object-cover rounded-sm shadow-frame"
+                />
               </div>
             ))}
           </div>
