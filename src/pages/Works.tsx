@@ -25,7 +25,7 @@ const Works = () => {
       const min = minPrice ? parseFloat(minPrice) : -Infinity;
       const max = maxPrice ? parseFloat(maxPrice) : Infinity;
       const matchesPrice = a.price >= min && a.price <= max;
-      const matchesType = type ? a.type === type : true;
+      const matchesType = type && type !== 'all' ? a.type === type : true;
       return matchesQuery && matchesPrice && matchesType;
     });
   }, [q, minPrice, maxPrice, type]);
@@ -52,7 +52,7 @@ const Works = () => {
                 <SelectValue placeholder="Todos os tipos" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos</SelectItem>
+                <SelectItem value="all">Todos</SelectItem>
                 {types.map(t => (
                   <SelectItem key={t} value={t}>{t}</SelectItem>
                 ))}
