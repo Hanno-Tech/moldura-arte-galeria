@@ -31,7 +31,7 @@ const WorkDetail = () => {
 
 
       {/* Layout com 3 colunas */}
-      <section className="grid grid-cols-1 md:grid-cols-[50%_25%_25%] md:grid-rows-2 gap-8 items-start mb-10">
+      <section className="grid grid-cols-1 md:grid-cols-[50%_25%_25%] gap-8 items-stretch mb-10">
         {/* Coluna 1 - Imagem principal */}
         <div className="bg-frame-gold/20 p-4 rounded-lg">
           <img
@@ -42,29 +42,29 @@ const WorkDetail = () => {
         </div>
 
         {/* Coluna 2 - Primeiras 2 miniaturas */}
-        <div className="grid grid-rows-2 gap-4">
+        <div className="grid grid-rows-2 gap-4 h-full">
           {obra.images.slice(0, 2).map((src, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`bg-frame-gold/20 p-2 rounded-md transition-transform duration-200 hover:scale-105 ${current === idx ? 'ring-2 ring-accent' : ''}`}
+              className={`bg-frame-gold/20 p-2 rounded-md h-full transition-transform duration-200 hover:scale-105 ${current === idx ? 'ring-2 ring-accent' : ''}`}
               aria-label={`Mostrar variação ${idx + 1}`}
             >
-              <img src={src} alt={`Variação ${idx + 1} de ${obra.title}`} className="w-full aspect-square object-cover rounded-sm" />
+              <img src={src} alt={`Variação ${idx + 1} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
             </button>
           ))}
         </div>
 
         {/* Coluna 3 - Últimas 2 miniaturas */}
-        <div className="grid grid-rows-2 gap-4">
+        <div className="grid grid-rows-2 gap-4 h-full">
           {obra.images.slice(2, 4).map((src, idx) => (
             <button
               key={idx + 2}
               onClick={() => setCurrent(idx + 2)}
-              className={`bg-frame-gold/20 p-2 rounded-md transition-transform duration-200 hover:scale-105 ${current === idx + 2 ? 'ring-2 ring-accent' : ''}`}
+              className={`bg-frame-gold/20 p-2 rounded-md h-full transition-transform duration-200 hover:scale-105 ${current === idx + 2 ? 'ring-2 ring-accent' : ''}`}
               aria-label={`Mostrar variação ${idx + 3}`}
             >
-              <img src={src} alt={`Variação ${idx + 3} de ${obra.title}`} className="w-full aspect-square object-cover rounded-sm" />
+              <img src={src} alt={`Variação ${idx + 3} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
             </button>
           ))}
         </div>
