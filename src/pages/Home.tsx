@@ -9,6 +9,13 @@ import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
 import artwork4 from "@/assets/artwork-4.jpg";
 import Autoplay from "embla-carousel-autoplay";
+import room1 from "@/assets/room-1.jpg";
+import room2 from "@/assets/room-2.jpg";
+import room3 from "@/assets/room-3.jpg";
+import room4 from "@/assets/room-4.jpg";
+import room5 from "@/assets/room-5.jpg";
+import room6 from "@/assets/room-6.jpg";
+import { artworks } from "@/data/artworks";
 import { useEffect, useState } from "react";
 
 const initialFeaturedArtworks = [
@@ -19,14 +26,12 @@ const initialFeaturedArtworks = [
 ];
 
 const Home = () => {
-  const obrasCarousel = [
-    { id: 'o1', image: artwork1, title: 'Composição VII', artist: 'Ana Silva' },
-    { id: 'o2', image: artwork2, title: 'Serra Dourada', artist: 'Pedro Rocha' },
-    { id: 'o3', image: artwork3, title: 'Figura com Pássaro', artist: 'Mana Souza' },
-    { id: 'o4', image: artwork4, title: 'Flores no Jardim', artist: 'Beatriz Rocha' },
-    { id: 'o5', image: artwork2, title: 'Ritmo Terracota', artist: 'Clara Nunes' },
-    { id: 'o6', image: artwork3, title: 'Geometrias Suaves', artist: 'Rafael Dias' },
-  ];
+  const obrasCarousel = artworks.map((a) => ({
+    id: a.id,
+    image: a.images[0],
+    title: a.title,
+    artist: a.artist,
+  }));
   const [featured, setFeatured] = useState(initialFeaturedArtworks);
   const [isFading, setIsFading] = useState(false);
   const [zoomed, setZoomed] = useState<number | null>(null);
@@ -124,12 +129,13 @@ const Home = () => {
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent>
               {obrasCarousel.map((obra) => (
-                <CarouselItem key={obra.id} className="basis-1/2">
+                <CarouselItem key={obra.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
                   <ArtworkCard
                     id={obra.id}
                     image={obra.image}
                     title={obra.title}
                     artist={obra.artist}
+                    size="compact"
                   />
                 </CarouselItem>
               ))}
@@ -177,7 +183,7 @@ const Home = () => {
           
           <Carousel className="w-full" opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2500, stopOnMouseEnter: true, stopOnInteraction: false })]}>
             <CarouselContent>
-              {[artwork1, artwork2, artwork3, artwork4, artwork2, artwork3].map((image, index) => (
+              {[room1, room2, room3, room4, room5, room6].map((image, index) => (
                 <CarouselItem key={index} className="basis-1/2 md:basis-1/4">
                   <div className="bg-frame-gold/30 p-4 rounded-lg">
                     <img

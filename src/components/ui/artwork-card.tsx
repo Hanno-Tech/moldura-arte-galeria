@@ -7,7 +7,7 @@ interface ArtworkCardProps {
   title: string;
   artist: string;
   className?: string;
-  size?: "default" | "large";
+  size?: "default" | "large" | "compact";
 }
 
 export const ArtworkCard = ({ id, image, title, artist, className, size = "default" }: ArtworkCardProps) => {
@@ -21,8 +21,8 @@ export const ArtworkCard = ({ id, image, title, artist, className, size = "defau
     >
       <div className="bg-card rounded-lg shadow-elegant hover:shadow-hover transition-all duration-300 overflow-hidden">
         <div className={cn(
-          "aspect-square relative overflow-hidden",
-          size === "large" ? "p-8" : "p-6"
+          "relative overflow-hidden",
+          size === "compact" ? "aspect-[4/3] p-4" : size === "large" ? "aspect-square p-8" : "aspect-square p-6"
         )}>
           <div className="bg-frame-gold/20 p-4 rounded-lg h-full">
             <img
