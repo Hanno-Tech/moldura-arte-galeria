@@ -47,6 +47,13 @@ const ArtistDetail = () => {
       document.title = `${artistData.name} | Artista | MAG`;
     }
   }, [artistData]);
+  const carouselWorks = useMemo(() => {
+    if (!artistData) return [] as typeof artworks;
+    const base = artistData.works;
+    let list = [...base];
+    while (list.length < 6) list = [...list, ...base];
+    return list.slice(0, Math.max(6, base.length));
+  }, [artistData]);
 
   if (!artistData) {
     return (
@@ -59,13 +66,10 @@ const ArtistDetail = () => {
 
   return (
     <div className="container mx-auto px-6 py-16">
-      <header className="mb-10">
-        <h1 className="font-playfair text-4xl text-primary mb-3">{artistData.name}</h1>
-      </header>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
         <article>
-          <h2 className="sr-only">Sobre o artista</h2>
+          <h1 className="font-playfair text-4xl text-primary mb-4">{artistData.name}</h1>
           <p className="text-foreground font-inter leading-relaxed mb-4">{artistData.bio}</p>
           <p className="text-muted-foreground font-inter">Nesta coleção, destacam-se obras como {artistData.works.map(w => w.title).slice(0,3).join(', ')}.</p>
         </article>
@@ -80,8 +84,8 @@ const ArtistDetail = () => {
         <h2 className="font-playfair text-3xl text-primary mb-6">Obras do artista</h2>
         <Carousel className="w-full" opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2500, stopOnMouseEnter: true, stopOnInteraction: false })]}>
           <CarouselContent>
-            {artistData.works.map((w) => (
-              <CarouselItem key={w.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
+            {carouselWorks.map((w, idx) => (
+              <CarouselItem key={`${w.id}-${idx}`} className="basis-full sm:basis-1/2 lg:basis-1/3">
                 <ArtworkCard id={w.id} image={w.images[0]} title={w.title} artist={w.artist} size="compact" />
               </CarouselItem>
             ))}
