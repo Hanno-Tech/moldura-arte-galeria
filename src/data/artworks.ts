@@ -2,6 +2,10 @@ import artwork1 from "@/assets/artwork-1.jpg";
 import artwork2 from "@/assets/artwork-2.jpg";
 import artwork3 from "@/assets/artwork-3.jpg";
 import artwork4 from "@/assets/artwork-4.jpg";
+import teta from "@/assets/teta.jpg";
+import teta2 from "@/assets/teta2.jpg";
+import teta3 from "@/assets/teta3.jpg";
+import flor from "@/assets/flor.jpg";
 
 export type Artwork = {
   id: string;
@@ -16,30 +20,30 @@ export type Artwork = {
 export const artworks: Artwork[] = [
   {
     id: "1",
-    title: "Composição VII",
-    artist: "Ana Silva",
-    price: 3500,
+    title: "Sem nome",
+    artist: "Zélio Andrezzo",
+    price: 12000,
     type: "Pintura a óleo",
-    images: [artwork1, artwork2, artwork3, artwork4, artwork2],
+    images: [flor, artwork2, artwork3, artwork4, artwork2],
     description:
-      "Obra contemporânea que explora a relação entre forma e cor em camadas sutis.",
+      "Sem descrição",
   },
   {
     id: "2",
-    title: "Serra Dourada",
-    artist: "Pedro Rocha",
-    price: 4200,
-    type: "Natureza morta",
-    images: [artwork2, artwork3, artwork4, artwork1, artwork3],
+    title: "A Deusa da Fertilidade",
+    artist: "Vera Sabino",
+    price: 32000,
+    type: "Acrílico Sobre Eucatex",
+    images: [teta, teta2, teta3],
     description:
-      "Texturas ricas e paleta terrosa que remetem à paisagem brasileira.",
+      "Sem descrição.",
   },
   {
     id: "3",
-    title: "Figura com Pássaro",
-    artist: "Mana Souza",
+    title: "Sem desc",
+    artist: "Marlete Tridapalli",
     price: 2900,
-    type: "Desenho realista",
+    type: "Acrílico Sobre Tela",
     images: [artwork3, artwork1, artwork2, artwork4, artwork1],
     description:
       "Estudo delicado de figura com ênfase em expressões e movimento.",

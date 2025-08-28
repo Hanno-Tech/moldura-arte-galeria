@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { QuoteButton } from "@/components/ui/quote-button";
-import artwork2 from "@/assets/artwork-2.jpg";
-import artwork4 from "@/assets/artwork-4.jpg";
+import partners from "@/assets/about/foto-criadores.jpg";
+import galery from "@/assets/about/foto-galeria.jpg";
 
 const About = () => {
   return (
@@ -31,18 +31,21 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-foreground font-inter leading-relaxed">
                 <p>
-                  Fundada em 1999, a MAG nasceu do sonho de uma família apaixonada pela arte 
-                  de transformar ambientes através da curadoria personalizada e molduras artesanais.
+                  A Moldura e Arte Galeria nasceu de uma paixão verdadeira pela arte e pelo cuidado com os detalhes.
+                  Fundada em 14 de dezembro de 1999 por Natália Silva Sombrio, a loja foi criada com o sonho 
+                  de oferecer um espaço onde a arte pudesse ser valorizada e onde cada quadro ganhasse a moldura
+                  perfeita para contar sua história.
                 </p>
                 <p>
-                  Ao longo de 25 anos, desenvolvemos uma metodologia única que combina sensibilidade 
-                  artística, técnica refinada e atenção aos detalhes, sempre respeitando a 
-                  individualidade de cada cliente e espaço.
+                  Natália, apaixonada por artes desde a infância, encontrou nesse universo uma nova forma de se 
+                  realizar após sua aposentadoria na CASAN. Com coragem, sensibilidade e dedicação, ela transformou 
+                  esse amor em um negócio familiar, abrindo a primeira loja no paredão da Avenida Hercílio Luz, 
+                  no centro de Florianópolis.
                 </p>
                 <p>
-                  Hoje, somos reconhecidos não apenas pela qualidade de nossos produtos, mas pela 
-                  capacidade de criar narrativas visuais que despertam emoções e transformam 
-                  a forma como as pessoas se relacionam com seus ambientes.
+                  Com o passar dos anos, a Moldura e Arte Galeria acompanhou as mudanças do mercado e evoluiu sem 
+                  perder sua essência. Em fevereiro de 2006, a galeria mudou-se para um novo endereço
+                   — ainda na mesma avenida — ganhando um espaço mais amplo e acolhedor, onde permanece até hoje.
                 </p>
               </div>
             </div>
@@ -50,7 +53,7 @@ const About = () => {
             <div className="relative">
               <div className="bg-frame-gold/20 p-8 rounded-lg">
                 <img
-                  src={artwork2}
+                  src={partners}
                   alt="História da MAG"
                   className="w-full rounded-sm shadow-frame"
                 />
@@ -67,7 +70,7 @@ const About = () => {
             <div className="relative order-2 lg:order-1">
               <div className="bg-frame-gold/20 p-8 rounded-lg">
                 <img
-                  src={artwork4}
+                  src={galery}
                   alt="Processo autoral MAG"
                   className="w-full rounded-sm shadow-frame"
                 />
@@ -75,24 +78,17 @@ const About = () => {
             </div>
             
             <div className="order-1 lg:order-2">
-              <h2 className="font-playfair text-4xl font-bold text-primary mb-6">
-                Do Briefing ao Prego
-              </h2>
               <div className="space-y-6 text-foreground font-inter leading-relaxed">
                 <p>
-                  Nosso processo autoral é o que nos diferencia no mercado. Iniciamos cada projeto 
-                  com um briefing detalhado, onde compreendemos não apenas as necessidades estéticas, 
-                  mas também o estilo de vida e as emoções que nosso cliente deseja despertar.
+                  Mais do que uma loja de quadros e molduras, nos tornamos referência pela qualidade dos materiais, 
+                  como molduras selecionadas, obras de pintores renomados, e principalmente pelo nosso atendimento humanizado
+                   — sempre com alegria, respeito e atenção aos detalhes que tornam cada cliente único. Muitos dos nossos 
+                  clientes estão conosco desde os primeiros dias, gerando um grande orgulho.
                 </p>
                 <p>
-                  A partir dessa compreensão profunda, desenvolvemos uma curadoria personalizada, 
-                  selecionando obras que dialogam harmoniosamente com o espaço. Cada moldura é 
-                  pensada e crafted especificamente para a obra escolhida.
-                </p>
-                <p>
-                  O processo culmina com a instalação cuidadosa, onde cada "prego" é posicionado 
-                  com precisão milimétrica, garantindo que o resultado final seja uma experiência 
-                  sensorial completa e transformadora.
+                  Hoje, a tradição iniciada por Natália segue viva através das mãos da família. Atualmente, a galeria é administrada por sua filha, 
+                  Silvia Andrade, com o apoio de seus netos Antônio Augusto Andrade e Eduardo Andrade, mantendo o 
+                  compromisso com a excelência, a arte e a relação próxima com cada cliente que entra pela porta.
                 </p>
               </div>
               
@@ -104,7 +100,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Valores */}
+      {/* Valores
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -154,7 +150,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

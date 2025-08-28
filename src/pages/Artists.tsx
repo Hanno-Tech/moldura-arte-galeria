@@ -4,22 +4,6 @@ import { Label } from "@/components/ui/label";
 import { ArtistCard } from "@/components/ui/artist-card";
 import { artworks } from "@/data/artworks";
 
-import artist1 from "@/assets/artists/artist-1.jpg";
-import artist2 from "@/assets/artists/artist-2.jpg";
-import artist3 from "@/assets/artists/artist-3.jpg";
-import artist4 from "@/assets/artists/artist-4.jpg";
-import artist5 from "@/assets/artists/artist-5.jpg";
-import artist6 from "@/assets/artists/artist-6.jpg";
-
-const photoMap: Record<string, string> = {
-  "ana-silva": artist1,
-  "pedro-rocha": artist2,
-  "mana-souza": artist3,
-  "beatriz-rocha": artist4,
-  "clara-nunes": artist5,
-  "rafael-dias": artist6,
-};
-
 const slugify = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 const Artists = () => {
@@ -30,14 +14,14 @@ const Artists = () => {
   }, []);
 
   const artists = useMemo(() => {
-    const map = new Map<string, { name: string; id: string; works: { id: string; title: string }[]; image: string }>();
+    const map = new Map<string, { name: string; id: string; works: { id: string; title: string, images: string[] }[];}>();
 
     for (const a of artworks) {
       const id = slugify(a.artist);
       if (!map.has(id)) {
-        map.set(id, { name: a.artist, id, works: [], image: photoMap[id] || artist1 });
+        map.set(id, { name: a.artist, id, works: []});
       }
-      map.get(id)!.works.push({ id: a.id, title: a.title });
+      map.get(id)!.works.push({ id: a.id, title: a.title, images: a.images } );
     }
 
     let list = Array.from(map.values());
@@ -72,7 +56,8 @@ const Artists = () => {
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {artists.map((ar) => (
-            <ArtistCard key={ar.id} id={ar.id} name={ar.name} image={ar.image} worksCount={ar.works.length} />
+            console.log(ar),
+            <ArtistCard key={ar.id} id={ar.id} name={ar.name} image={ar.works[0].images[0]} worksCount={ar.works.length} />
           ))}
         </div>
         {artists.length === 0 && (

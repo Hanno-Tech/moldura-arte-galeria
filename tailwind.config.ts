@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'playfair': ['Cormorant Garamond', 'serif'],
-				'inter': ['Inter', 'sans-serif'],
+				'playfair': ['Noto Serif', 'serif'],
+				'inter': ['Be Vietnam Pro', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

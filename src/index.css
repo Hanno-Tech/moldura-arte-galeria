@@ -10,7 +10,7 @@ All colors MUST be HSL.
   :root {
     /* MAG Design System - Paleta terrosa e elegante */
     --background: 36 31% 92%; /* Bege claro inspirado nas referências */
-    --foreground: 25 20% 15%; /* Marrom escuro para texto */
+    --foreground: 35 74% 12%; /* Marrom escuro para texto */
 
     --card: 36 31% 94%;
     --card-foreground: 25 20% 15%;
@@ -18,7 +18,7 @@ All colors MUST be HSL.
     --popover: 36 31% 94%;
     --popover-foreground: 25 20% 15%;
 
-    --primary: 25 35% 20%; /* Marrom escuro sofisticado */
+    --primary: 22 47% 18%; /* Marrom escuro sofisticado */
     --primary-foreground: 36 31% 92%;
 
     --secondary: 60 15% 65%; /* Verde oliva suave */
@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 36 20% 85%;
     --muted-foreground: 25 15% 45%;
 
-    --accent: 18 45% 55%; /* Terracota elegante */
+    --accent: 23 93% 26% /* Terracota elegante */
     --accent-foreground: 36 31% 92%;
 
     --destructive: 0 84.2% 60.2%;
@@ -41,7 +41,7 @@ All colors MUST be HSL.
     --gallery-warm: 36 31% 88%; /* Fundo para galerias */
     --frame-gold: 45 35% 70%; /* Cor dourada para molduras */
     --text-elegant: 25 25% 25%; /* Texto principal elegante */
-    --brand-green: 160 25% 18%; /* Verde escuro sofisticado */
+    --brand-green: 67 41% 12%; /* Verde escuro sofisticado */
     --brand-green-foreground: 36 31% 92%; /* Contraste claro */
     
     /* Gradientes suaves */

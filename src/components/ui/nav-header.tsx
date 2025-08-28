@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import logo from '@/assets/logo.svg';
 
 const navigation = [
   { name: 'Início', href: '/' },
@@ -19,8 +20,12 @@ export const NavHeader = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="group flex items-center font-playfair text-3xl font-bold text-primary hover:text-accent transition-colors">
-            <span>MAG</span>
-            <span className="ml-3 hidden lg:inline-block overflow-hidden whitespace-nowrap max-w-0 opacity-0 transition-all duration-300 ease-out lg:group-hover:max-w-[220px] lg:group-hover:opacity-100">Moldura &amp; Arte</span>
+            <img 
+              src={logo}
+              className="h-[1em] w-auto"
+              alt="logotipo-moldura-arte-galeria"
+            />
+            <span className="ml-3 hidden lg:inline-block overflow-hidden whitespace-nowrap max-w-0 opacity-0 transition-all duration-300 ease-out lg:group-hover:max-w-[250px] lg:group-hover:opacity-100">Moldura & Arte</span>
           </Link>
 
           {/* Navigation */}

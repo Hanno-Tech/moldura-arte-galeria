@@ -59,7 +59,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-playfair text-lg font-semibold mb-4">Contato</h4>
             <div className="space-y-2 text-brand-green-foreground/80 font-inter">
-              <p>+55 (11) 99999-9999</p>
+              <p>+55 (48) 99989-5989</p>
               <p>contato@mag.com.br</p>
               <p>Florianópolis, SC</p>
               <a href="#" className="block text-accent hover:text-accent/80 transition-colors mt-4">
