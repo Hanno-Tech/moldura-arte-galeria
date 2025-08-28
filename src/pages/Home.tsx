@@ -63,7 +63,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gallery-warm min-h-[80vh] flex items-center">
+      <section className="relative bg-gallery-warm min-h-[100vh] flex items-center">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
@@ -93,14 +93,14 @@ const Home = () => {
       </section>
 
       {/* About Preview */}
-      <section className="py-20 bg-gallery-warm">
+      <section className="py-20  bg-primary text-primary-foreground">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="font-playfair text-4xl font-bold text-primary mb-6">
+              <h2 className="font-playfair text-4xl font-bold mb-6">
                 Sobre
               </h2>
-              <p className="text-foreground font-inter leading-relaxed mb-6 max-w-md">
+              <p className="font-inter leading-relaxed mb-6 max-w-md">
                 Companhiam ducta édnce com arro angura de tempo lim e cumple utulas 
                 cobre cilscioarem et ademersore
               </p>
@@ -120,7 +120,7 @@ const Home = () => {
       </section>
 
       {/* Obras Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-gallery-warm">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center mb-8">
             <h2 className="font-playfair text-4xl font-bold">Obras</h2>
@@ -149,7 +149,7 @@ const Home = () => {
       </section>
 
       {/* Figuras Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="py-20 bg-terracota  text-primary-foreground">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
             <h2 className="font-playfair text-4xl font-bold">

@@ -74,6 +74,10 @@ export default {
 					DEFAULT: 'hsl(var(--brand-green))',
 					foreground: 'hsl(var(--brand-green-foreground))'
 				},
+				'terracota':{
+					DEFAULT: 'hsl(var(--terracota))',
+					foreground: 'hsl(var(--terracota-foreground))'
+				}
 			},
 			backgroundImage: {
 				'gradient-warm': 'var(--gradient-warm)',

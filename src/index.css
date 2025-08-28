@@ -43,6 +43,8 @@ All colors MUST be HSL.
     --text-elegant: 25 25% 25%; /* Texto principal elegante */
     --brand-green: 67 41% 12%; /* Verde escuro sofisticado */
     --brand-green-foreground: 36 31% 92%; /* Contraste claro */
+    --terracota: 23 93% 26%; /* Terracota elegante */
+    --terracota-foreground: 36 31% 92%; /* Contraste
     
     /* Gradientes suaves */
     --gradient-warm: linear-gradient(135deg, hsl(36 31% 92%), hsl(36 20% 85%));
