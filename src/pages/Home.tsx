@@ -149,7 +149,7 @@ const Home = () => {
       </section>
 
       {/* Figuras Section */}
-      <section className="py-20 bg-terracota  text-primary-foreground">
+      <section className="py-20 bg-terracota text-primary-foreground">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
             <h2 className="font-playfair text-4xl font-bold">
