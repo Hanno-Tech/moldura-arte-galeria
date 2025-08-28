@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { QuoteButton } from "@/components/ui/quote-button";
 import partners from "@/assets/about/foto-criadores.jpg";
 import galery from "@/assets/about/foto-galeria.jpg";
 
@@ -13,7 +11,7 @@ const About = () => {
             <h1 className="font-playfair text-5xl font-bold text-primary mb-6">
               Sobre a MAG
             </h1>
-            <p className="text-xl text-muted-foreground font-inter leading-relaxed">
+            <p className="text-xl text-muted-foreground font-inter leading-relaxed text-justify">
               25 anos de tradição familiar, transformando espaços em experiências sensoriais únicas 
               através da arte, molduras artesanais e curadoria personalizada.
             </p>
@@ -30,19 +28,19 @@ const About = () => {
                 Nossa História
               </h2>
               <div className="space-y-6 text-foreground font-inter leading-relaxed">
-                <p>
+                <p className="text-justify">
                   A Moldura e Arte Galeria nasceu de uma paixão verdadeira pela arte e pelo cuidado com os detalhes.
                   Fundada em 14 de dezembro de 1999 por Natália Silva Sombrio, a loja foi criada com o sonho 
                   de oferecer um espaço onde a arte pudesse ser valorizada e onde cada quadro ganhasse a moldura
                   perfeita para contar sua história.
                 </p>
-                <p>
+                <p className="text-justify">
                   Natália, apaixonada por artes desde a infância, encontrou nesse universo uma nova forma de se 
                   realizar após sua aposentadoria na CASAN. Com coragem, sensibilidade e dedicação, ela transformou 
                   esse amor em um negócio familiar, abrindo a primeira loja no paredão da Avenida Hercílio Luz, 
                   no centro de Florianópolis.
                 </p>
-                <p>
+                <p className="text-justify">
                   Com o passar dos anos, a Moldura e Arte Galeria acompanhou as mudanças do mercado e evoluiu sem 
                   perder sua essência. Em fevereiro de 2006, a galeria mudou-se para um novo endereço
                    — ainda na mesma avenida — ganhando um espaço mais amplo e acolhedor, onde permanece até hoje.
@@ -79,21 +77,17 @@ const About = () => {
             
             <div className="order-1 lg:order-2">
               <div className="space-y-6 text-foreground font-inter leading-relaxed">
-                <p>
+                <p className="text-justify">
                   Mais do que uma loja de quadros e molduras, nos tornamos referência pela qualidade dos materiais, 
                   como molduras selecionadas, obras de pintores renomados, e principalmente pelo nosso atendimento humanizado
                    — sempre com alegria, respeito e atenção aos detalhes que tornam cada cliente único. Muitos dos nossos 
                   clientes estão conosco desde os primeiros dias, gerando um grande orgulho.
                 </p>
-                <p>
+                <p className="text-justify">
                   Hoje, a tradição iniciada por Natália segue viva através das mãos da família. Atualmente, a galeria é administrada por sua filha, 
                   Silvia Andrade, com o apoio de seus netos Antônio Augusto Andrade e Eduardo Andrade, mantendo o 
                   compromisso com a excelência, a arte e a relação próxima com cada cliente que entra pela porta.
                 </p>
-              </div>
-              
-              <div className="mt-8">
-                <QuoteButton className="font-inter" />
               </div>
             </div>
           </div>
