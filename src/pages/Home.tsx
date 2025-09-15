@@ -27,6 +27,11 @@ const Home = () => {
   const [zoomed, setZoomed] = useState<number | null>(null);
 
   useEffect(() => {
+    // Restaura o título original quando voltar para a home
+    document.title = "MAG - Moldura Arte e Galeria";
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       // Seleciona uma imagem aleatória para trocar
       const randomIndex = Math.floor(Math.random() * featured.length);

@@ -10,7 +10,7 @@ const WorkDetail = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    if (obra) document.title = `${obra.title} - ${obra.artist} | MAG`;
+    if (obra) document.title = `${obra.title} | MAG`;
   }, [obra]);
 
   useEffect(() => {
