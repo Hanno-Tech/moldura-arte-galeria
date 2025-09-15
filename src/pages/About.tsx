@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import partners from "@/assets/about/foto-criadores.jpg";
 import galery from "@/assets/about/foto-galeria.jpg";
 
 const About = () => {
+  useEffect(() => {
+    // Abre a página no topo quando carregar
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

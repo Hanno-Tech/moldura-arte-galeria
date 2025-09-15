@@ -13,6 +13,8 @@ const Works = () => {
 
   useEffect(() => {
     document.title = "Obras | MAG";
+    // Abre a página no topo quando carregar
+    window.scrollTo(0, 0);
   }, []);
 
   const types = useMemo(() => Array.from(new Set(allArtworks.map(a => a.type))), []);

@@ -47,6 +47,11 @@ const ArtistDetail = () => {
       document.title = `${artistData.name} | Artista | MAG`;
     }
   }, [artistData]);
+
+  useEffect(() => {
+    // Abre a página no topo quando navegar para um novo artista
+    window.scrollTo(0, 0);
+  }, [id]);
   const carouselWorks = useMemo(() => {
     if (!artistData) return [] as typeof artworks;
     const base = artistData.works;

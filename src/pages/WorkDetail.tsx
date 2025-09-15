@@ -13,6 +13,11 @@ const WorkDetail = () => {
     if (obra) document.title = `${obra.title} - ${obra.artist} | MAG`;
   }, [obra]);
 
+  useEffect(() => {
+    // Abre a página no topo quando navegar para uma nova obra
+    window.scrollTo(0, 0);
+  }, [id]);
+
   if (!obra) {
     return (
       <div className="container mx-auto px-6 py-16">
@@ -85,9 +90,9 @@ const WorkDetail = () => {
         </div>
       </section>
 
-      <div className="mt-8 text-center">
+      {/* <div className="mt-8 text-center">
         <Link to="/obras" className="text-accent hover:underline font-inter">← Ver todas as obras</Link>
-      </div>
+      </div> */}
     </div>
   );
 };

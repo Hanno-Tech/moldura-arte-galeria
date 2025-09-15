@@ -3,27 +3,16 @@ import { ArtworkCard } from "@/components/ui/artwork-card";
 import { QuoteButton } from "@/components/ui/quote-button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
-import heroArtwork from "@/assets/hero-artwork.jpg";
-import artwork1 from "@/assets/teta.jpg";
-import artwork2 from "@/assets/flor.jpg";
-import artwork3 from "@/assets/artwork-3.jpg";
-import artwork4 from "@/assets/artwork-4.jpg";
-import Autoplay from "embla-carousel-autoplay";
-import room1 from "@/assets/room-1.jpg";
-import room2 from "@/assets/room-2.jpg";
-import room3 from "@/assets/room-3.jpg";
-import room4 from "@/assets/room-4.jpg";
-import room5 from "@/assets/room-5.jpg";
-import room6 from "@/assets/room-6.jpg";
+import artwork2 from "@/assets/obras/obra_1/IMG_6828-39.webp";
 import { artworks } from "@/data/artworks";
 import { useEffect, useState } from "react";
 
-const initialFeaturedArtworks = [
-  { id: '1', image: artwork1, title: 'Composição VII', artist: 'Ana Silva' },
-  { id: '2', image: artwork2, title: 'Serra Dourada', artist: 'Pedro Rocha' },
-  { id: '3', image: artwork3, title: 'Figura com Pássaro', artist: 'Mana Souza' },
-  { id: '4', image: artwork4, title: 'Flores no Jardim', artist: 'Beatriz Rocha' },
-];
+const initialFeaturedArtworks = artworks.slice(0, 4).map((a) => ({
+  id: a.id,
+  image: a.images[0],
+  title: a.title,
+  artist: a.artist,
+}));
 
 const Home = () => {
   const obrasCarousel = artworks.map((a) => ({
@@ -33,28 +22,44 @@ const Home = () => {
     artist: a.artist,
   }));
   const [featured, setFeatured] = useState(initialFeaturedArtworks);
-  const [isFading, setIsFading] = useState(false);
+  const [fadingIndex, setFadingIndex] = useState<number | null>(null);
+  const [fadingInIndex, setFadingInIndex] = useState<number | null>(null);
   const [zoomed, setZoomed] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Primeiro troca as posições, depois aplica um fade-in suave
-      setFeatured((prev) => {
-        if (prev.length < 2) return prev;
-        const i = Math.floor(Math.random() * prev.length);
-        let j = Math.floor(Math.random() * prev.length);
-        if (j === i) j = (j + 1) % prev.length;
-        const next = [...prev];
-        [next[i], next[j]] = [next[j], next[i]];
-        return next;
-      });
-      setIsFading(true);
-      const timeout = setTimeout(() => setIsFading(false), 300);
-      return () => clearTimeout(timeout);
-    }, 4000);
+      // Seleciona uma imagem aleatória para trocar
+      const randomIndex = Math.floor(Math.random() * featured.length);
+      setFadingIndex(randomIndex);
+      
+      // Após o fade-out, troca apenas essa imagem
+      setTimeout(() => {
+        setFeatured((prev) => {
+          const next = [...prev];
+          // Substitui a imagem atual por uma nova obra aleatória
+          const availableArtworks = obrasCarousel.filter(obra => 
+            !prev.some(f => f.id === obra.id)
+          );
+          
+          if (availableArtworks.length > 0) {
+            const randomArtwork = availableArtworks[Math.floor(Math.random() * availableArtworks.length)];
+            next[randomIndex] = randomArtwork;
+          }
+          
+          return next;
+        });
+        
+        // Aplica fade-in após trocar a imagem
+        setFadingInIndex(randomIndex);
+        setTimeout(() => {
+          setFadingIndex(null);
+          setFadingInIndex(null);
+        }, 2000); // Tempo do fade-in (2 segundos)
+      }, 2000); // Tempo do fade-out
+    }, 5000); // 5 segundos entre transições para mais suavidade
 
     return () => clearInterval(interval);
-  }, []);
+  }, [featured.length, obrasCarousel]);
 
   const handleZoom = (index: number) => {
     setZoomed(index);
@@ -77,9 +82,15 @@ const Home = () => {
               </QuoteButton>
             </div>
             
-            <div className={`grid grid-cols-2 gap-4 ${isFading ? 'animate-fade-in' : ''}`}>
-              {featured.map((artwork) => (
-                <div key={artwork.id} className="bg-frame-gold/30 p-4 rounded-lg transition-transform duration-300">
+            <div className="grid grid-cols-2 gap-4">
+              {featured.map((artwork, index) => (
+                <div 
+                  key={`${artwork.id}-${index}`} 
+                  className={`bg-frame-gold/30 p-4 rounded-lg transition-transform duration-300 ${
+                    fadingIndex === index ? 'animate-fade-out' : 
+                    fadingInIndex === index ? 'animate-fade-in' : ''
+                  }`}
+                >
                   <img
                     src={artwork.image}
                     alt={artwork.title}
@@ -101,8 +112,10 @@ const Home = () => {
                 Sobre
               </h2>
               <p className="font-inter leading-relaxed mb-6 max-w-md">
-                Companhiam ducta édnce com arro angura de tempo lim e cumple utulas 
-                cobre cilscioarem et ademersore
+                A MAG nasce para transformar paredes em experiências que fazem sentir. Há 25 anos, a mesma família aplica qualidade apurada e calor humano para que qualquer superfície — em casa ou no trabalho — acolha, inspire e reflita quem a pessoa é.
+              </p>
+              <p className="font-inter leading-relaxed mb-6 max-w-md">
+                O serviço vai muito além de vender quadros: consiste em curadoria guiada por sensações, estudo de layout, moldura sob medida e instalação assistida, presencial ou por vídeo. Chamamos isso de processo “do briefing ao prego”, um método autoral que garante resultado estético e emocional sem dores de cabeça.
               </p>
             </div>
             
@@ -148,7 +161,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Figuras Section */}
+      {/* Figuras Section
       <section className="py-20 bg-terracota text-primary-foreground">
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center mb-12">
@@ -172,9 +185,9 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Quadros em Ambiente */}
+      {/* Quadros em Ambiente
       <section className="py-20 bg-gallery-warm">
         <div className="container mx-auto px-6">
           <h2 className="font-playfair text-4xl font-bold text-primary mb-12">
@@ -198,7 +211,7 @@ const Home = () => {
             </CarouselContent>
           </Carousel>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

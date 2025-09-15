@@ -11,6 +11,8 @@ const Artists = () => {
 
   useEffect(() => {
     document.title = "Artistas | MAG";
+    // Abre a página no topo quando carregar
+    window.scrollTo(0, 0);
   }, []);
 
   const artists = useMemo(() => {

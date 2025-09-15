@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* MAG Design System - Paleta terrosa e elegante */
+    --background: 36 31% 92%; /* Bege claro inspirado nas referências */
+    --foreground: 35 74% 12%; /* Marrom escuro para texto */
+
+    --card: 36 31% 94%;
+    --card-foreground: 25 20% 15%;
+
+    --popover: 36 31% 94%;
+    --popover-foreground: 25 20% 15%;
+
+    --primary: 22 47% 18%; /* Marrom escuro sofisticado */
+    --primary-foreground: 36 31% 92%;
+
+    --secondary: 60 15% 65%; /* Verde oliva suave */
+    --secondary-foreground: 25 20% 15%;
+
+    --muted: 36 20% 85%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 23 93% 26% /* Terracota elegante */
+    --accent-foreground: 36 31% 92%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 15% 80%;
+    --input: 36 15% 80%;
+    --ring: 25 35% 20%;
+
+    /* Design tokens customizados */
+    --gallery-warm: 36 31% 88%; /* Fundo para galerias */
+    --frame-gold: 45 35% 70%; /* Cor dourada para molduras */
+    --text-elegant: 25 25% 25%; /* Texto principal elegante */
+    --brand-green: 67 41% 12%; /* Verde escuro sofisticado */
+    --brand-green-foreground: 36 31% 92%; /* Contraste claro */
+    --terracota: 23 93% 26%; /* Terracota elegante */
+    --terracota-foreground: 36 31% 92%; /* Contraste
+    
+    /* Gradientes suaves */
+    --gradient-warm: linear-gradient(135deg, hsl(36 31% 92%), hsl(36 20% 85%));
+    --gradient-gallery: linear-gradient(180deg, hsl(36 31% 94%), hsl(36 25% 88%));
+    
+    /* Sombras elegantes */
+    --shadow-frame: 0 8px 32px -8px hsl(25 35% 20% / 0.15);
+    --shadow-elegant: 0 4px 20px -4px hsl(25 35% 20% / 0.1);
+    --shadow-hover: 0 12px 40px -8px hsl(25 35% 20% / 0.2);
+    
+    /* Transições suaves */
+    --transition-elegant: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

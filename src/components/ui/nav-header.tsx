@@ -4,10 +4,10 @@ import logo from '@/assets/logo.svg';
 
 const navigation = [
   { name: 'Início', href: '/' },
-  { name: 'Obras', href: '/obras' },
-  { name: 'Artistas', href: '/artistas' },
-  { name: 'Molduras', href: '/molduras' },
-  { name: 'Consultoria', href: '/consultoria' },
+  // { name: 'Obras', href: '/obras' },
+  // { name: 'Artistas', href: '/artistas' },
+  // { name: 'Molduras', href: '/molduras' },
+  // { name: 'Consultoria', href: '/consultoria' },
   { name: 'Sobre', href: '/sobre' },
 ];
 
