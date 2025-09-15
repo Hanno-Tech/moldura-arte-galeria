@@ -86,7 +86,14 @@ const WorkDetail = () => {
             <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
           </div>
           
-          <QuoteButton variant="default" className="font-inter">Pedir mais informações</QuoteButton>
+          <QuoteButton 
+            variant="default" 
+            className="font-inter"
+            artworkTitle={obra.title}
+            useWhatsApp={true}
+          >
+            Pedir mais informações
+          </QuoteButton>
         </div>
       </section>
 

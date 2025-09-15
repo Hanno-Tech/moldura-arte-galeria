@@ -82,7 +82,11 @@ const Home = () => {
                 <br />
                 faz sentir
               </h1>
-              <QuoteButton variant="default" className="font-inter font-medium text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3">
+              <QuoteButton 
+                variant="default" 
+                className="font-inter font-medium text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3"
+                useWhatsApp={true}
+              >
                 Consulta nossa curadoria
               </QuoteButton>
             </div>
