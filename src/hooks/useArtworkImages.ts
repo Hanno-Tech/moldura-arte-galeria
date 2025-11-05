@@ -1,58 +1,58 @@
-import { useQuery } from "@tanstack/react-query";
-
-// Substitua 'dlnkin4nf' pelo nome da sua nuvem Cloudinary
-const CLOUD_NAME = "dlnkin4nf";
+import { useState, useEffect } from 'react';
+import allGalleries from '@/data/image-galleries.json';
 
 /**
- * Interface para a resposta da lista de recursos do Cloudinary.
- * Apenas os campos que usamos são definidos aqui.
+ * @typedef {'loading' | 'error' | 'success'} Status
  */
-interface CloudinaryResource {
-  public_id: string;
-  secure_url: string;
-}
 
 /**
- * Busca a lista de imagens de uma obra de arte no Cloudinary com base em uma tag.
- * @param tag - A tag da obra de arte (ex: "obra_1").
- * @returns Uma promessa que resolve para um array de URLs de imagem.
- */
-const fetchArtworkImages = async (tag: string): Promise<string[]> => {
-  if (!tag) {
-    return [];
-  }
-
-  // URL para a lista de recursos do Cloudinary baseada na tag
-  const url = `https://res.cloudinary.com/${CLOUD_NAME}/image/list/${tag}.json`;
-
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`A lista de imagens para a tag "${tag}" não foi encontrada ou não pôde ser carregada.`);
-  }
-
-  const data = await response.json();
-
-  // Extrai as URLs seguras dos recursos
-  const imageUrls = data.resources.map((resource: CloudinaryResource) => resource.secure_url);
-
-  return imageUrls;
-};
-
-/**
- * Hook customizado para buscar as imagens de uma obra de arte do Cloudinary.
+ * Hook customizado para carregar as imagens de uma galeria a partir do arquivo JSON local.
  *
- * Este hook utiliza o `react-query` para buscar, armazenar em cache e gerenciar
- * o estado dos dados das imagens.
+ * Este hook lê o arquivo `image-galleries.json` (gerado pelo script de sincronização)
+ * e retorna as imagens correspondentes à tag fornecida.
  *
- * @param tag - A tag da obra de arte a ser buscada.
- * @returns O estado da query, incluindo os dados das imagens, status de carregamento e erro.
+ * @param {string} tag - A tag da obra de arte a ser buscada (ex: "obra_1").
+ * @returns {{
+ *   data: string[] | undefined;
+ *   isLoading: boolean;
+ *   isError: boolean;
+ *   status: Status;
+ * }} - O estado da busca, incluindo os dados, status de carregamento e erro.
  */
-export const useArtworkImages = (tag: string) => {
-  return useQuery({
-    queryKey: ["artworkImages", tag], // Chave única para a query, baseada na tag
-    queryFn: () => fetchArtworkImages(tag), // Função que busca os dados
-    enabled: !!tag, // A query só será executada se a tag existir
-    staleTime: 1000 * 60 * 5, // Os dados são considerados "frescos" por 5 minutos
-    cacheTime: 1000 * 60 * 30, // Os dados são mantidos em cache por 30 minutos
-  });
+export const useArtworkImages = (tag) => {
+  const [status, setStatus] = useState('loading');
+  const [data, setData] = useState(undefined);
+
+  useEffect(() => {
+    if (!tag) {
+      setStatus('success');
+      setData([]);
+      return;
+    }
+
+    try {
+      // Verifica se a tag existe como uma chave no JSON importado
+      if (tag in allGalleries) {
+        // @ts-ignore
+        setData(allGalleries[tag]);
+        setStatus('success');
+      } else {
+        // A tag é válida, mas não foi encontrada no JSON (pode ser um erro de sincronização)
+        console.warn(`Nenhuma galeria encontrada para a tag "${tag}" no arquivo JSON local.`);
+        setData([]);
+        setStatus('success'); // Trata como sucesso, mas com uma galeria vazia
+      }
+    } catch (error) {
+      console.error('Erro ao carregar as galerias de imagens do JSON:', error);
+      setStatus('error');
+      setData(undefined);
+    }
+  }, [tag]); // Executa o efeito sempre que a tag mudar
+
+  return {
+    data,
+    status,
+    isLoading: status === 'loading',
+    isError: status === 'error',
+  };
 };

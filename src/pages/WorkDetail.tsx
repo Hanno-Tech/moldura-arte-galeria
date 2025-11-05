@@ -5,12 +5,11 @@ import { artworks } from "@/data/artworks";
 import { QuoteButton } from "@/components/ui/quote-button";
 import { useArtworkImages } from "@/hooks/useArtworkImages";
 import { OptimizedImage } from "@/components/ui/optimized-image";
-import { getCoverImageUrl } from "@/lib/cloudinary";
 
 const WorkDetail = () => {
   const { id } = useParams();
   const obra = useMemo(() => artworks.find(a => a.id === id), [id]);
-  const { data: images, isLoading, isError } = useArtworkImages(obra?.tag || "");
+  const { data: galleryImages, isLoading, isError } = useArtworkImages(obra?.tag || "");
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -21,6 +20,11 @@ const WorkDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
+  useEffect(() => {
+    // Reseta a imagem atual se as imagens da galeria mudarem
+    setCurrent(0);
+  }, [galleryImages]);
+
   if (!obra) {
     return (
       <div className="container mx-auto px-6 py-16">
@@ -30,18 +34,8 @@ const WorkDetail = () => {
     );
   }
 
-  const galleryImages = useMemo(() => {
-    if (images && images.length > 0) {
-      return images;
-    }
-    // Gera a URL da imagem de capa como fallback se a galeria ainda não carregou
-    return [getCoverImageUrl(obra.tag)];
-  }, [images, obra.tag]);
-
-  useEffect(() => {
-    // Reseta a imagem atual se as imagens da galeria mudarem
-    setCurrent(0);
-  }, [galleryImages]);
+  // Garante que galleryImages seja sempre um array
+  const imagesToShow = galleryImages || [];
 
   return (
     <div className="container mx-auto px-6 py-16">
@@ -52,11 +46,11 @@ const WorkDetail = () => {
 
       <section className="grid grid-cols-1 md:grid-cols-[50%_25%_25%] gap-8 items-stretch mb-10">
         <div className="bg-frame-gold/20 p-4 rounded-lg">
-          {isLoading ? (
+          {isLoading || imagesToShow.length === 0 ? (
             <div className="w-full aspect-[4/3] bg-gray-200 animate-pulse rounded-sm" />
           ) : (
             <OptimizedImage
-              src={galleryImages[current]}
+              src={imagesToShow[current]}
               alt={`${obra.title} - imagem ${current + 1}`}
               className="w-full aspect-[4/3] object-cover rounded-sm shadow-frame"
             />
@@ -64,7 +58,7 @@ const WorkDetail = () => {
         </div>
 
         <div className="grid grid-rows-2 gap-4 h-full">
-          {galleryImages.slice(0, 2).map((src, idx) => (
+          {imagesToShow.slice(0, 2).map((src, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
@@ -77,7 +71,7 @@ const WorkDetail = () => {
         </div>
 
         <div className="grid grid-rows-2 gap-4 h-full">
-          {galleryImages.slice(2, 4).map((src, idx) => (
+          {imagesToShow.slice(2, 4).map((src, idx) => (
             <button
               key={idx + 2}
               onClick={() => setCurrent(idx + 2)}
@@ -92,7 +86,7 @@ const WorkDetail = () => {
 
       {isError && (
         <div className="text-center text-red-500 mb-6 font-inter">
-          Não foi possível carregar as imagens adicionais da galeria.
+          Não foi possível carregar as imagens da galeria. Verifique a conexão ou o arquivo de dados.
         </div>
       )}
 
