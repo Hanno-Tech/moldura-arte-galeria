@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-// Substitua 'dol7hr3h6' pelo nome da sua nuvem Cloudinary
-const CLOUD_NAME = "dol7hr3h6";
+// Substitua 'dlnkin4nf' pelo nome da sua nuvem Cloudinary
+const CLOUD_NAME = "dlnkin4nf";
 
 /**
  * Interface para a resposta da lista de recursos do Cloudinary.

@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import { artworks } from "@/data/artworks";
 import { useEffect, useState } from "react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { getCoverImageUrl } from "@/lib/cloudinary";
 
 const initialFeaturedArtworks = artworks.slice(0, 4).map((a) => ({
   id: a.id,
-  image: a.images[0],
+  image: getCoverImageUrl(a.tag),
   title: a.title,
   artist: a.artist,
 }));
@@ -17,7 +18,7 @@ const initialFeaturedArtworks = artworks.slice(0, 4).map((a) => ({
 const Home = () => {
   const obrasCarousel = artworks.map((a) => ({
     id: a.id,
-    image: a.images[0],
+    image: getCoverImageUrl(a.tag),
     title: a.title,
     artist: a.artist,
   }));

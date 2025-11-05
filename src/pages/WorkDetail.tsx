@@ -5,6 +5,7 @@ import { artworks } from "@/data/artworks";
 import { QuoteButton } from "@/components/ui/quote-button";
 import { useArtworkImages } from "@/hooks/useArtworkImages";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { getCoverImageUrl } from "@/lib/cloudinary";
 
 const WorkDetail = () => {
   const { id } = useParams();
@@ -33,8 +34,9 @@ const WorkDetail = () => {
     if (images && images.length > 0) {
       return images;
     }
-    return [obra.coverImage]; // Fallback para a imagem de capa
-  }, [images, obra.coverImage]);
+    // Gera a URL da imagem de capa como fallback se a galeria ainda não carregou
+    return [getCoverImageUrl(obra.tag)];
+  }, [images, obra.tag]);
 
   useEffect(() => {
     // Reseta a imagem atual se as imagens da galeria mudarem
