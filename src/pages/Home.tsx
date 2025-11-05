@@ -3,9 +3,9 @@ import { ArtworkCard } from "@/components/ui/artwork-card";
 import { QuoteButton } from "@/components/ui/quote-button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Link } from "react-router-dom";
-import artwork2 from "@/assets/obras/obra_1/IMG_6828-39.webp";
 import { artworks } from "@/data/artworks";
 import { useEffect, useState } from "react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 const initialFeaturedArtworks = artworks.slice(0, 4).map((a) => ({
   id: a.id,
@@ -100,7 +100,7 @@ const Home = () => {
                     fadingInIndex === index ? 'animate-fade-in' : ''
                   }`}
                 >
-                  <img
+                  <OptimizedImage
                     src={artwork.image}
                     alt={artwork.title}
                     className="w-full aspect-square object-cover rounded-sm shadow-frame"
@@ -130,8 +130,8 @@ const Home = () => {
             
             <div className="relative">
               <div className="bg-frame-gold/20 p-6 rounded-lg">
-                <img
-                  src={artwork2}
+                <OptimizedImage
+                  src="https://res.cloudinary.com/dol7hr3h6/image/upload/v1718134732/mag/obra_1/IMG_6828-39_a2a2c6d83a.webp"
                   alt="Processo artesanal MAG"
                   className="w-full aspect-[4/3] object-cover rounded-sm shadow-frame"
                 />
