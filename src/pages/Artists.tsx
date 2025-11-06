@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArtistCard } from "@/components/ui/artist-card";
-import { artworks } from "@/data/artworks";
+import { artworks as allArtworks } from "@/data/artworks";
+import allGalleries from "@/data/image-galleries.json";
 
 const slugify = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
@@ -11,19 +12,23 @@ const Artists = () => {
 
   useEffect(() => {
     document.title = "Artistas | MAG";
-    // Abre a página no topo quando carregar
     window.scrollTo(0, 0);
   }, []);
 
   const artists = useMemo(() => {
-    const map = new Map<string, { name: string; id: string; works: { id: string; title: string, images: string[] }[];}>();
+    const map = new Map<string, { name: string; id: string; works: { id: string; title: string, image: string }[]; }>();
 
-    for (const a of artworks) {
+    for (const a of allArtworks) {
       const id = slugify(a.artist);
       if (!map.has(id)) {
-        map.set(id, { name: a.artist, id, works: []});
+        map.set(id, { name: a.artist, id, works: [] });
       }
-      map.get(id)!.works.push({ id: a.id, title: a.title, images: a.images } );
+
+      // @ts-ignore
+      const gallery = allGalleries[a.tag] || [];
+      const coverImage = gallery.length > 0 ? gallery[0] : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
+
+      map.get(id)!.works.push({ id: a.id, title: a.title, image: coverImage });
     }
 
     let list = Array.from(map.values());
@@ -58,8 +63,7 @@ const Artists = () => {
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {artists.map((ar) => (
-            console.log(ar),
-            <ArtistCard key={ar.id} id={ar.id} name={ar.name} image={ar.works[0].images[0]} worksCount={ar.works.length} />
+            <ArtistCard key={ar.id} id={ar.id} name={ar.name} image={ar.works[0].image} worksCount={ar.works.length} />
           ))}
         </div>
         {artists.length === 0 && (

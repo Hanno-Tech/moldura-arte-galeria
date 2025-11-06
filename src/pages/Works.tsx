@@ -4,6 +4,20 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArtworkCard } from "@/components/ui/artwork-card";
 import { artworks as allArtworks } from "@/data/artworks";
+import allGalleries from "@/data/image-galleries.json";
+
+/**
+ * Prepara a lista de obras para exibição, garantindo que cada uma tenha uma imagem de capa
+ * a partir do JSON de galerias.
+ */
+const artworksForDisplay = allArtworks.map(artwork => {
+  // @ts-ignore
+  const gallery = allGalleries[artwork.tag] || [];
+  return {
+    ...artwork,
+    image: gallery.length > 0 ? gallery[0] : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`,
+  };
+});
 
 const Works = () => {
   const [q, setQ] = useState("");
@@ -13,14 +27,13 @@ const Works = () => {
 
   useEffect(() => {
     document.title = "Obras | MAG";
-    // Abre a página no topo quando carregar
     window.scrollTo(0, 0);
   }, []);
 
   const types = useMemo(() => Array.from(new Set(allArtworks.map(a => a.type))), []);
 
   const artworks = useMemo(() => {
-    return allArtworks.filter(a => {
+    return artworksForDisplay.filter(a => {
       const matchesQuery = q
         ? a.title.toLowerCase().includes(q.toLowerCase()) || a.artist.toLowerCase().includes(q.toLowerCase())
         : true;
@@ -81,7 +94,7 @@ const Works = () => {
             <ArtworkCard
               key={a.id}
               id={a.id}
-              image={a.images[0]}
+              image={a.image}
               title={a.title}
               artist={a.artist}
             />
