@@ -4,7 +4,7 @@ import { OptimizedImage } from "./optimized-image";
 
 interface ArtworkCardProps {
   id: string;
-  image: string;
+  image: string | { full?: string; medium?: string; thumbnail?: string; url?: string };
   title: string;
   artist: string;
   className?: string;

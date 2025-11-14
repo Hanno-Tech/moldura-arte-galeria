@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { OptimizedImage } from "./optimized-image";
 
 interface ArtistCardProps {
   id: string;
   name: string;
-  image: string;
+  image: string | { full?: string; medium?: string; thumbnail?: string; url?: string };
   worksCount?: number;
   className?: string;
 }
@@ -18,10 +19,9 @@ export const ArtistCard = ({ id, name, image, worksCount, className }: ArtistCar
       <article className="bg-card rounded-lg shadow-elegant hover:shadow-hover transition-all duration-300 overflow-hidden">
         <div className="relative overflow-hidden aspect-square p-6">
           <div className="bg-frame-gold/20 p-4 rounded-lg h-full">
-            <img
+            <OptimizedImage
               src={image}
-              alt={`Retrato do artista ${name}`}
-              loading="lazy"
+              alt={`Obra do artista ${name}`}
               className="w-full h-full object-cover rounded-sm shadow-frame"
             />
           </div>

@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArtworkCard } from "@/components/ui/artwork-card";
 import { artworks as allArtworks } from "@/data/artworks";
 import allGalleries from "@/data/image-galleries.json";
+import { normalizeImage } from "@/lib/image-utils";
 
 /**
  * Prepara a lista de obras para exibição, garantindo que cada uma tenha uma imagem de capa
@@ -13,17 +14,17 @@ import allGalleries from "@/data/image-galleries.json";
 const artworksForDisplay = allArtworks.map(artwork => {
   // @ts-ignore
   const gallery = allGalleries[artwork.tag] || [];
+  const firstImage = gallery.length > 0 ? gallery[0] : null;
   return {
     ...artwork,
-    image: gallery.length > 0 ? gallery[0] : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`,
+    image: (firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`) as string | { full?: string; medium?: string; thumbnail?: string; url?: string },
   };
 });
 
 const Works = () => {
   const [q, setQ] = useState("");
   const [type, setType] = useState<string>("");
-  const [minPrice, setMinPrice] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<string>("");
+  const [code, setCode] = useState<string>("");
 
   useEffect(() => {
     document.title = "Obras | MAG";
@@ -37,13 +38,13 @@ const Works = () => {
       const matchesQuery = q
         ? a.title.toLowerCase().includes(q.toLowerCase()) || a.artist.toLowerCase().includes(q.toLowerCase())
         : true;
-      const min = minPrice ? parseFloat(minPrice) : -Infinity;
-      const max = maxPrice ? parseFloat(maxPrice) : Infinity;
-      const matchesPrice = a.price >= min && a.price <= max;
+      const matchesCode = code
+        ? a.tag.toLowerCase().includes(code.toLowerCase())
+        : true;
       const matchesType = type && type !== 'all' ? a.type === type : true;
-      return matchesQuery && matchesPrice && matchesType;
+      return matchesQuery && matchesCode && matchesType;
     });
-  }, [q, minPrice, maxPrice, type]);
+  }, [q, code, type]);
 
   return (
     <div className="container mx-auto px-6 py-16">
@@ -54,7 +55,7 @@ const Works = () => {
 
       {/* Filtros */}
       <section className="bg-card border border-border rounded-lg p-6 shadow-elegant mb-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <Label htmlFor="q" className="font-inter">Pesquisar</Label>
             <Input id="q" placeholder="Artista ou título" value={q} onChange={e => setQ(e.target.value)} />
@@ -76,13 +77,8 @@ const Works = () => {
           </div>
 
           <div>
-            <Label htmlFor="min" className="font-inter">Preço mínimo</Label>
-            <Input id="min" type="number" placeholder="0" value={minPrice} onChange={e => setMinPrice(e.target.value)} />
-          </div>
-
-          <div>
-            <Label htmlFor="max" className="font-inter">Preço máximo</Label>
-            <Input id="max" type="number" placeholder="10000" value={maxPrice} onChange={e => setMaxPrice(e.target.value)} />
+            <Label htmlFor="code" className="font-inter">Código</Label>
+            <Input id="code" placeholder="Ex: 1001, 1002..." value={code} onChange={e => setCode(e.target.value)} />
           </div>
         </div>
       </section>

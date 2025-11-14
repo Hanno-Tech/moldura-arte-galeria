@@ -37,7 +37,7 @@ export const artworks: Artwork[] = [
     artist: "Willy Zumblick",
     price: null,
     type: "Pintura a óleo",
-    tag: "obra_1",
+    tag: "1001",
     images: [],
     description: "Willy Zumblick - Biografia",
     year: 1956
@@ -48,7 +48,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 12000,
     type: "Pintura a óleo",
-    tag: "obra_2",
+    tag: "1004",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: 2017
@@ -59,7 +59,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 6700,
     type: "Pintura a óleo",
-    tag: "obra_3",
+    tag: "1005",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: 2018
@@ -70,7 +70,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 6800,
     type: "Pintura a óleo",
-    tag: "obra_4",
+    tag: "1006",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: null
@@ -81,7 +81,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 6300,
     type: "Pintura a óleo",
-    tag: "obra_5",
+    tag: "1007",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: null
@@ -92,7 +92,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 2800,
     type: "Pintura a óleo",
-    tag: "obra_6",
+    tag: "1008",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: null
@@ -103,7 +103,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 2800,
     type: "Pintura a óleo",
-    tag: "obra_7",
+    tag: "1009",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: null
@@ -114,7 +114,7 @@ export const artworks: Artwork[] = [
     artist: "Zélio Andrezzo",
     price: 6800,
     type: "Pintura a óleo",
-    tag: "obra_8",
+    tag: "1010",
     images: [],
     description: "Zélio Andrezzo: Uma Trajetória Artística de Destaque",
     year: null
@@ -125,7 +125,7 @@ export const artworks: Artwork[] = [
     artist: "António Guimarães",
     price: 2100,
     type: "Pintura a óleo",
-    tag: "obra_9",
+    tag: "1019",
     images: [],
     description: "António Guimarães: Uma Vida Dedicada à Arte",
     year: 2013
@@ -136,7 +136,7 @@ export const artworks: Artwork[] = [
     artist: "Vera Sabino",
     price: 32000,
     type: "Acrílico",
-    tag: "obra_10",
+    tag: "1020",
     images: [],
     description: "Biografia de Vera Sabino",
     year: null
@@ -147,7 +147,7 @@ export const artworks: Artwork[] = [
     artist: "Valda Costa",
     price: 9900,
     type: "Acrílico",
-    tag: "obra_11",
+    tag: "1023",
     images: [],
     description: "Biografia de Valda Costa",
     year: 1991
@@ -158,7 +158,7 @@ export const artworks: Artwork[] = [
     artist: "Valda Costa",
     price: 11200,
     type: "Acrílico",
-    tag: "obra_12",
+    tag: "1024",
     images: [],
     description: "Biografia de Valda Costa",
     year: 1991
@@ -169,7 +169,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 4100,
     type: "Acrílico",
-    tag: "obra_13",
+    tag: "1027",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -180,7 +180,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 2900,
     type: "Acrílico",
-    tag: "obra_14",
+    tag: "1028",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -191,7 +191,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 2300,
     type: "Acrílico",
-    tag: "obra_15",
+    tag: "1029",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -202,7 +202,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 1900,
     type: "Acrílico",
-    tag: "obra_16",
+    tag: "1030",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -213,7 +213,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 4900,
     type: "Acrílico",
-    tag: "obra_17",
+    tag: "1032",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -224,7 +224,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 2200,
     type: "Acrílico",
-    tag: "obra_18",
+    tag: "1033",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -235,7 +235,7 @@ export const artworks: Artwork[] = [
     artist: "Marlete Tridapalli",
     price: 2500,
     type: "Acrílico",
-    tag: "obra_19",
+    tag: "1034",
     images: [],
     description: "Biografia de Marlete Tridapalli",
     year: null
@@ -246,7 +246,7 @@ export const artworks: Artwork[] = [
     artist: "Silvio Pleticos",
     price: 500000,
     type: "Pintura a óleo",
-    tag: "obra_20",
+    tag: "1038",
     images: [],
     description: "biografia_silvio_pleticos",
     year: null
@@ -257,7 +257,7 @@ export const artworks: Artwork[] = [
     artist: "Sidney Mariano",
     price: 3900,
     type: "Técnica Mista",
-    tag: "obra_21",
+    tag: "1040",
     images: [],
     description: "biografia_sidney_mariano",
     year: 2007
@@ -268,7 +268,7 @@ export const artworks: Artwork[] = [
     artist: "Sidney Mariano",
     price: 5600,
     type: "Técnica Mista",
-    tag: "obra_22",
+    tag: "1041",
     images: [],
     description: "biografia_sidney_mariano",
     year: 2005
@@ -278,8 +278,8 @@ export const artworks: Artwork[] = [
     title: "Sergio Bonson",
     artist: "Sergio Bonson",
     price: 5500,
-    type: null,
-    tag: "obra_23",
+    type: "Acrílico",
+    tag: "1042",
     images: [],
     description: "Biografia de Sérgio Bonson",
     year: 2005
@@ -289,8 +289,8 @@ export const artworks: Artwork[] = [
     title: "Sandra Mello",
     artist: "Sandra Mello",
     price: 3200,
-    type: null,
-    tag: "obra_24",
+    type: "Acrílico",
+    tag: "1043",
     images: [],
     description: "Sandra Mello: Uma Biografia Artística",
     year: 2006
@@ -300,8 +300,8 @@ export const artworks: Artwork[] = [
     title: "RS Carvalho",
     artist: "RS Carvalho",
     price: 2400,
-    type: null,
-    tag: "obra_25",
+    type: "Acrílico",
+    tag: "1045",
     images: [],
     description: "Biografia de R",
     year: 1999
@@ -312,7 +312,7 @@ export const artworks: Artwork[] = [
     artist: "Reynaldo Manzke",
     price: 19000,
     type: "Pintura a óleo",
-    tag: "obra_26",
+    tag: "1046",
     images: [],
     description: "Reynaldo Manzke: Um Mestre da Pintura Brasileira",
     year: 1968
@@ -323,7 +323,7 @@ export const artworks: Artwork[] = [
     artist: "Raul Taurant Delavy",
     price: 17000,
     type: "Pintura a óleo",
-    tag: "obra_27",
+    tag: "1047",
     images: [],
     description: "Biografia de Raul Taurant Delavy",
     year: null
@@ -334,7 +334,7 @@ export const artworks: Artwork[] = [
     artist: "Raimundo Botelho",
     price: 6900,
     type: "Pintura a óleo",
-    tag: "obra_28",
+    tag: "1048",
     images: [],
     description: "Raimundo Honório Botêlho Neto: Uma Vida Dedicada à Arte",
     year: 1997
@@ -345,7 +345,7 @@ export const artworks: Artwork[] = [
     artist: "Paulo Marinho",
     price: 25000,
     type: "Pintura a óleo",
-    tag: "obra_29",
+    tag: "1050",
     images: [],
     description: "Biografia de Paulo Marinho",
     year: 1984
@@ -356,7 +356,7 @@ export const artworks: Artwork[] = [
     artist: "Paulo Marinho",
     price: 25000,
     type: "Pintura a óleo",
-    tag: "obra_30",
+    tag: "1051",
     images: [],
     description: "Biografia de Paulo Marinho",
     year: 1992
@@ -367,7 +367,7 @@ export const artworks: Artwork[] = [
     artist: "Paulo Marinho",
     price: 6900,
     type: "Pintura a óleo",
-    tag: "obra_31",
+    tag: "1052",
     images: [],
     description: "Biografia de Paulo Marinho",
     year: 1982
@@ -377,8 +377,8 @@ export const artworks: Artwork[] = [
     title: "Nilton Zanotti",
     artist: "Nilton Zanotti",
     price: 6900,
-    type: null,
-    tag: "obra_32",
+    type: "Acrílico",
+    tag: "1055",
     images: [],
     description: "Nilton Zanotti: Uma Biografia Abrangente",
     year: null
@@ -389,7 +389,7 @@ export const artworks: Artwork[] = [
     artist: "Nicson",
     price: 1800,
     type: "Pintura a óleo",
-    tag: "obra_33",
+    tag: "1056",
     images: [],
     description: "João Feliciano (Nicson): O Talentoso Artista da Espátula",
     year: 2001
@@ -400,7 +400,7 @@ export const artworks: Artwork[] = [
     artist: "Nicson",
     price: 1800,
     type: "Pintura a óleo",
-    tag: "obra_34",
+    tag: "1057",
     images: [],
     description: "João Feliciano (Nicson): O Talentoso Artista da Espátula",
     year: 2001
@@ -411,7 +411,7 @@ export const artworks: Artwork[] = [
     artist: "Nicson",
     price: 1800,
     type: "Pintura a óleo",
-    tag: "obra_35",
+    tag: "1058",
     images: [],
     description: "João Feliciano (Nicson): O Talentoso Artista da Espátula",
     year: 2001
@@ -422,7 +422,7 @@ export const artworks: Artwork[] = [
     artist: "Monteiro Prestes",
     price: 2550,
     type: "Pintura a óleo",
-    tag: "obra_36",
+    tag: "1059",
     images: [],
     description: "Biografia de Monteiro Prestes",
     year: null
@@ -432,8 +432,8 @@ export const artworks: Artwork[] = [
     title: "Na Praça",
     artist: "Miriam Postal",
     price: 1100,
-    type: null,
-    tag: "obra_37",
+    type: "Serigrafia em Canva",
+    tag: "1060",
     images: [],
     description: "Miriam Postal: A Alma Brasileira em Cores Vibrantes",
     year: 2015
@@ -443,8 +443,8 @@ export const artworks: Artwork[] = [
     title: "Mir Sestrem",
     artist: "Mir Sestrem",
     price: 2900,
-    type: null,
-    tag: "obra_38",
+    type: "Encremento de Cupim na Madeira",
+    tag: "1061",
     images: [],
     description: "Mir Sestrem: A Arte em Aglutinado Celular de Madeira Estratificada",
     year: 2004
@@ -455,7 +455,7 @@ export const artworks: Artwork[] = [
     artist: "Marcos Leal",
     price: null,
     type: "Acrílico",
-    tag: "obra_39",
+    tag: "1062",
     images: [],
     description: "Marcos Leal: Biografia do Artista Plástico",
     year: 2023
@@ -466,7 +466,7 @@ export const artworks: Artwork[] = [
     artist: "Marcos Leal",
     price: 3500,
     type: "Acrílico",
-    tag: "obra_40",
+    tag: "1063",
     images: [],
     description: "Marcos Leal: Biografia do Artista Plástico",
     year: 2022
@@ -477,7 +477,7 @@ export const artworks: Artwork[] = [
     artist: "Marcos Leal",
     price: 1700,
     type: "Acrílico",
-    tag: "obra_41",
+    tag: "1064",
     images: [],
     description: "Marcos Leal: Biografia do Artista Plástico",
     year: 2016
@@ -488,7 +488,7 @@ export const artworks: Artwork[] = [
     artist: "Marcos Leal",
     price: 1580,
     type: "Acrílico",
-    tag: "obra_42",
+    tag: "1065",
     images: [],
     description: "Marcos Leal: Biografia do Artista Plástico",
     year: null
@@ -498,8 +498,8 @@ export const artworks: Artwork[] = [
     title: "Marco Antônio Moreira",
     artist: "Marco Antônio Moreira",
     price: 5900,
-    type: null,
-    tag: "obra_43",
+    type: "Acrílico",
+    tag: "1072",
     images: [],
     description: "Biografia: Marco Antônio Moreira",
     year: 2002
@@ -509,8 +509,8 @@ export const artworks: Artwork[] = [
     title: "Mângelo",
     artist: "Mângelo",
     price: 2400,
-    type: null,
-    tag: "obra_44",
+    type: "Acrílico",
+    tag: "1074",
     images: [],
     description: "Mângelo: Um Artista Plástico Brasileiro",
     year: 1995
@@ -521,7 +521,7 @@ export const artworks: Artwork[] = [
     artist: "Luiz Si",
     price: 2900,
     type: "Pintura a óleo",
-    tag: "obra_45",
+    tag: "1075",
     images: [],
     description: "Luiz Si: Uma Vida Dedicada à Arte Catarinense",
     year: 2009
@@ -532,7 +532,7 @@ export const artworks: Artwork[] = [
     artist: "Luiz Si",
     price: 1400,
     type: "Pintura a óleo",
-    tag: "obra_46",
+    tag: "1076",
     images: [],
     description: "Luiz Si: Uma Vida Dedicada à Arte Catarinense",
     year: 1984
@@ -543,7 +543,7 @@ export const artworks: Artwork[] = [
     artist: "Luiz Si",
     price: 1400,
     type: "Pintura a óleo",
-    tag: "obra_47",
+    tag: "1077",
     images: [],
     description: "Luiz Si: Uma Vida Dedicada à Arte Catarinense",
     year: 1982
@@ -554,7 +554,7 @@ export const artworks: Artwork[] = [
     artist: "Luiz Carlos Albertini",
     price: 6900,
     type: "Pintura a óleo",
-    tag: "obra_48",
+    tag: "1079",
     images: [],
     description: "Luiz Carlos Albertini: Uma Biografia Artística",
     year: 1992
@@ -565,7 +565,7 @@ export const artworks: Artwork[] = [
     artist: "Luiz Carlos Albertini",
     price: 6750,
     type: "Pintura a óleo",
-    tag: "obra_49",
+    tag: "1080",
     images: [],
     description: "Luiz Carlos Albertini: Uma Biografia Artística",
     year: 1994
@@ -576,7 +576,7 @@ export const artworks: Artwork[] = [
     artist: "Lúcia Horst Calluf",
     price: 1900,
     type: "Pintura a óleo",
-    tag: "obra_50",
+    tag: "1082",
     images: [],
     description: "biografia_lucia_horst_calluf",
     year: 1993
@@ -587,7 +587,7 @@ export const artworks: Artwork[] = [
     artist: "Kenji Fukuda",
     price: 30000,
     type: "Técnica Mista",
-    tag: "obra_51",
+    tag: "1084",
     images: [],
     description: "biografia_kenji_fukuda",
     year: 2020
@@ -598,7 +598,7 @@ export const artworks: Artwork[] = [
     artist: "João calixto",
     price: 4600,
     type: "Pintura a óleo",
-    tag: "obra_52",
+    tag: "1086",
     images: [],
     description: "João Batista Calixto de Jesus: Uma Biografia Artística",
     year: null
@@ -609,7 +609,7 @@ export const artworks: Artwork[] = [
     artist: "Jean Guillaume",
     price: 1800,
     type: "Pintura a óleo",
-    tag: "obra_53",
+    tag: "1087",
     images: [],
     description: "Biografia de Jean Guillaume (Jean Jules Joseph Guillaume)",
     year: 1969
@@ -619,8 +619,8 @@ export const artworks: Artwork[] = [
     title: "Jair Martins",
     artist: "Jair Martins",
     price: 3400,
-    type: null,
-    tag: "obra_54",
+    type: "Acrílico",
+    tag: "1088",
     images: [],
     description: "Biografia de Jair Martins",
     year: 2017
@@ -630,8 +630,8 @@ export const artworks: Artwork[] = [
     title: "Ivo Silva",
     artist: "Ivo Silva",
     price: 1800,
-    type: "Acrílico",
-    tag: "obra_55",
+    type: "Acrílica Sobre Eucatex",
+    tag: "1089",
     images: [],
     description: "Ivo Silva: Uma Jornada Artística entre o Real e o Fantástico",
     year: 1986
@@ -642,7 +642,7 @@ export const artworks: Artwork[] = [
     artist: "Inos Corradin",
     price: 17000,
     type: "Pintura a óleo",
-    tag: "obra_56",
+    tag: "1090",
     images: [],
     description: "Inos Corradin: Uma Vida de Arte e Expressão",
     year: null
@@ -652,8 +652,8 @@ export const artworks: Artwork[] = [
     title: "Idesio Leal",
     artist: "Idesio Leal",
     price: 2700,
-    type: null,
-    tag: "obra_57",
+    type: "Acrílico",
+    tag: "1091",
     images: [],
     description: "biografia_idesio_leal",
     year: 2005
@@ -664,7 +664,7 @@ export const artworks: Artwork[] = [
     artist: "Helcio Iorio",
     price: 2800,
     type: "Pintura a óleo",
-    tag: "obra_58",
+    tag: "1092",
     images: [],
     description: "Biografia de Helcio Iorio",
     year: null
@@ -675,7 +675,7 @@ export const artworks: Artwork[] = [
     artist: "Hamilton Cordeiro",
     price: 950,
     type: "Acrílico",
-    tag: "obra_59",
+    tag: "1094",
     images: [],
     description: "Hamilton Cordeiro: Uma Vida Dedicada à Arte",
     year: 2002
@@ -686,7 +686,7 @@ export const artworks: Artwork[] = [
     artist: "Hamilton Cordeiro",
     price: 1700,
     type: "Acrílico",
-    tag: "obra_60",
+    tag: "1095",
     images: [],
     description: "Hamilton Cordeiro: Uma Vida Dedicada à Arte",
     year: 2004
@@ -697,7 +697,7 @@ export const artworks: Artwork[] = [
     artist: "Hamilton Cordeiro",
     price: 2000,
     type: "Acrílico",
-    tag: "obra_61",
+    tag: "1096",
     images: [],
     description: "Hamilton Cordeiro: Uma Vida Dedicada à Arte",
     year: 2001
@@ -708,7 +708,7 @@ export const artworks: Artwork[] = [
     artist: "Hamilton Cordeiro",
     price: 1200,
     type: "Acrílico",
-    tag: "obra_62",
+    tag: "1097",
     images: [],
     description: "Hamilton Cordeiro: Uma Vida Dedicada à Arte",
     year: 2002
@@ -719,7 +719,7 @@ export const artworks: Artwork[] = [
     artist: "Gabriel Bertazzoli",
     price: 7600,
     type: "Acrílico",
-    tag: "obra_63",
+    tag: "1103",
     images: [],
     description: "Biografia de Gabriel Bertazzoli",
     year: 2019
@@ -730,7 +730,7 @@ export const artworks: Artwork[] = [
     artist: "Fernando Calderari",
     price: 17000,
     type: "Pintura a óleo",
-    tag: "obra_64",
+    tag: "1104",
     images: [],
     description: "biografia_fernando_calderari",
     year: 1997
@@ -740,8 +740,8 @@ export const artworks: Artwork[] = [
     title: "Ely Albernaz",
     artist: "Ely Albernaz",
     price: 2200,
-    type: null,
-    tag: "obra_65",
+    type: "Acrílico",
+    tag: "1105",
     images: [],
     description: "Biografia de Ely Albernaz",
     year: null
@@ -751,8 +751,8 @@ export const artworks: Artwork[] = [
     title: "Ely Albernaz",
     artist: "Ely Albernaz",
     price: 3380,
-    type: null,
-    tag: "obra_66",
+    type: "Acrílico",
+    tag: "1106",
     images: [],
     description: "Biografia de Ely Albernaz",
     year: null
@@ -763,7 +763,7 @@ export const artworks: Artwork[] = [
     artist: "Élio Hahnemann",
     price: 7000,
     type: "Pintura a óleo",
-    tag: "obra_67",
+    tag: "1108",
     images: [],
     description: "biografia_elio_hahnemann",
     year: 2000
@@ -774,42 +774,9 @@ export const artworks: Artwork[] = [
     artist: "Elias Andrade",
     price: 4900,
     type: "Acrílico",
-    tag: "obra_68",
+    tag: "1110",
     images: [],
     description: "Elias Andrade: O Artista da Alma Manezinha",
-    year: null
-  },
-  {
-    id: "69",
-    title: "Dudu Rodrigues",
-    artist: "Dudu Rodrigues",
-    price: null,
-    type: "Acrílico",
-    tag: "obra_69",
-    images: [],
-    description: "Biografia de Dudu Rodrigues",
-    year: null
-  },
-  {
-    id: "70",
-    title: "Dudu Rodrigues",
-    artist: "Dudu Rodrigues",
-    price: null,
-    type: "Acrílico",
-    tag: "obra_70",
-    images: [],
-    description: "Biografia de Dudu Rodrigues",
-    year: null
-  },
-  {
-    id: "71",
-    title: "Dudu Rodrigues",
-    artist: "Dudu Rodrigues",
-    price: null,
-    type: "Acrílico",
-    tag: "obra_71",
-    images: [],
-    description: "Biografia de Dudu Rodrigues",
     year: null
   },
   {
@@ -818,7 +785,7 @@ export const artworks: Artwork[] = [
     artist: "Cleusa Soares",
     price: 3900,
     type: "Pintura a óleo",
-    tag: "obra_72",
+    tag: "1123",
     images: [],
     description: "Cleusa Soares: Uma Vida Dedicada à Arte",
     year: 2015
@@ -829,7 +796,7 @@ export const artworks: Artwork[] = [
     artist: "Cleusa Soares",
     price: 2500,
     type: "Pintura a óleo",
-    tag: "obra_73",
+    tag: "1124",
     images: [],
     description: "Cleusa Soares: Uma Vida Dedicada à Arte",
     year: 2015
@@ -840,7 +807,7 @@ export const artworks: Artwork[] = [
     artist: "Caio Borges",
     price: 15000,
     type: "Acrílico",
-    tag: "obra_74",
+    tag: "1126",
     images: [],
     description: "biografia_caio_borges",
     year: 2004
@@ -851,7 +818,7 @@ export const artworks: Artwork[] = [
     artist: "Caio Borges",
     price: 13000,
     type: "Acrílico",
-    tag: "obra_75",
+    tag: "1127",
     images: [],
     description: "biografia_caio_borges",
     year: 2005
@@ -862,7 +829,7 @@ export const artworks: Artwork[] = [
     artist: "Arthur Figueiredo",
     price: 6200,
     type: "Pintura a óleo",
-    tag: "obra_76",
+    tag: "1130",
     images: [],
     description: "Arthur Alves Figueiredo: Uma Vida Dedicada à Arte",
     year: 1985
@@ -872,8 +839,8 @@ export const artworks: Artwork[] = [
     title: "Ângelo Cannone",
     artist: "Ângelo Cannone",
     price: 10300,
-    type: null,
-    tag: "obra_77",
+    type: "Pintura a óleo",
+    tag: "1131",
     images: [],
     description: "biografia_angelo_canonne",
     year: null
@@ -884,7 +851,7 @@ export const artworks: Artwork[] = [
     artist: "Hosana Dzerounian",
     price: 8900,
     type: null,
-    tag: "obra_78",
+    tag: "1132",
     images: [],
     description: "Hosana Dzerounian: Uma Visão Geral de Sua Trajetória Artística",
     year: 1978
@@ -894,8 +861,8 @@ export const artworks: Artwork[] = [
     title: "Arte Cusquenha",
     artist: "Arte Cusquenha",
     price: 4900,
-    type: null,
-    tag: "obra_79",
+    type: "Acrílico",
+    tag: "1134",
     images: [],
     description: "",
     year: null
@@ -906,7 +873,7 @@ export const artworks: Artwork[] = [
     artist: "Digo Tertschitsch",
     price: 4200,
     type: "Pintura a óleo",
-    tag: "obra_80",
+    tag: "1136",
     images: [],
     description: "Biografia de Digo Tertschitsch",
     year: 2018
@@ -916,8 +883,8 @@ export const artworks: Artwork[] = [
     title: "Tania Campos",
     artist: "Tania Campos",
     price: 1350,
-    type: null,
-    tag: "obra_81",
+    type: "Acrílico",
+    tag: "1137",
     images: [],
     description: "",
     year: 1997
@@ -928,7 +895,7 @@ export const artworks: Artwork[] = [
     artist: "Marcos Martins",
     price: 3900,
     type: "Acrílico",
-    tag: "obra_82",
+    tag: "1139",
     images: [],
     description: "",
     year: 1994
@@ -938,8 +905,8 @@ export const artworks: Artwork[] = [
     title: "Rosas",
     artist: "Zélia Bússolo",
     price: 3200,
-    type: null,
-    tag: "obra_83",
+    type: "Pintura a óleo",
+    tag: "1141",
     images: [],
     description: "",
     year: 1994
@@ -949,8 +916,8 @@ export const artworks: Artwork[] = [
     title: "Zélia Bússolo",
     artist: "Zélia Bússolo",
     price: 3900,
-    type: null,
-    tag: "obra_84",
+    type: "Pintura a óleo",
+    tag: "1142",
     images: [],
     description: "",
     year: null
@@ -960,8 +927,8 @@ export const artworks: Artwork[] = [
     title: "Zélia Bússolo",
     artist: "Zélia Bússolo",
     price: 20000,
-    type: null,
-    tag: "obra_85",
+    type: "Pintura a óleo",
+    tag: "1143",
     images: [],
     description: "",
     year: null
@@ -971,8 +938,8 @@ export const artworks: Artwork[] = [
     title: "Roberto Pereira",
     artist: "Roberto Pereira",
     price: 4900,
-    type: null,
-    tag: "obra_86",
+    type: "Acrílico",
+    tag: "1144",
     images: [],
     description: "",
     year: null
@@ -982,8 +949,8 @@ export const artworks: Artwork[] = [
     title: "Priscila Rogoski",
     artist: "Priscila Rogoski",
     price: 3900,
-    type: null,
-    tag: "obra_87",
+    type: "Espatulado em Tela",
+    tag: "1145",
     images: [],
     description: "",
     year: 2011
@@ -993,8 +960,8 @@ export const artworks: Artwork[] = [
     title: "Priscila Rogoski",
     artist: "Priscila Rogoski",
     price: 4900,
-    type: null,
-    tag: "obra_88",
+    type: "Espatulado em Tela",
+    tag: "1146",
     images: [],
     description: "",
     year: 2021
@@ -1004,8 +971,8 @@ export const artworks: Artwork[] = [
     title: "Priscila Rogoski",
     artist: "Priscila Rogoski",
     price: 3500,
-    type: null,
-    tag: "obra_89",
+    type: "Espatulado em Tela",
+    tag: "1147",
     images: [],
     description: "",
     year: 2021
@@ -1015,8 +982,8 @@ export const artworks: Artwork[] = [
     title: "José Azevedo",
     artist: "José Azevedo",
     price: 5200,
-    type: null,
-    tag: "obra_90",
+    type: "Acrílico",
+    tag: "1148",
     images: [],
     description: "",
     year: null
@@ -1026,8 +993,8 @@ export const artworks: Artwork[] = [
     title: "Nairo Souza",
     artist: "Nairo Souza",
     price: 1500,
-    type: null,
-    tag: "obra_91",
+    type: "Acrílico",
+    tag: "1150",
     images: [],
     description: "Nairo Souza",
     year: 2005
@@ -1037,8 +1004,8 @@ export const artworks: Artwork[] = [
     title: "Nairo Souza",
     artist: "Nairo Souza",
     price: 1500,
-    type: null,
-    tag: "obra_92",
+    type: "Acrílico",
+    tag: "1151",
     images: [],
     description: "Nairo Souza",
     year: 2017
@@ -1048,8 +1015,8 @@ export const artworks: Artwork[] = [
     title: "Nairo Souza",
     artist: "Nairo Souza",
     price: 1500,
-    type: null,
-    tag: "obra_93",
+    type: "Acrílico",
+    tag: "1152",
     images: [],
     description: "Nairo Souza",
     year: 2018
@@ -1059,10 +1026,10 @@ export const artworks: Artwork[] = [
     title: "Leonidas Monte",
     artist: "Leonidas Monte",
     price: 3600,
-    type: null,
-    tag: "obra_94",
+    type: "Acrílico",
+    tag: "1153",
     images: [],
     description: "",
     year: null
-  },
-]
+  }
+];

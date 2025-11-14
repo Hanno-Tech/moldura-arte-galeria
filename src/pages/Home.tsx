@@ -3,8 +3,9 @@ import { QuoteButton } from "@/components/ui/quote-button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { artworks } from "@/data/artworks";
 import allGalleries from "@/data/image-galleries.json";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { normalizeImage } from "@/lib/image-utils";
 
 /**
  * Prepara a lista de obras para exibição, garantindo que cada uma tenha uma imagem de capa.
@@ -13,9 +14,10 @@ import { OptimizedImage } from "@/components/ui/optimized-image";
 const artworksForDisplay = artworks.map(artwork => {
   // @ts-ignore
   const gallery = allGalleries[artwork.tag] || [];
+  const firstImage = gallery.length > 0 ? gallery[0] : null;
   return {
     id: artwork.id,
-    image: gallery.length > 0 ? gallery[0] : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`,
+    image: firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`,
     title: artwork.title,
     artist: artwork.artist,
   };
@@ -23,8 +25,25 @@ const artworksForDisplay = artworks.map(artwork => {
 
 const initialFeaturedArtworks = artworksForDisplay.slice(0, 4);
 
+/**
+ * Função para embaralhar um array usando o algoritmo Fisher-Yates
+ */
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const Home = () => {
   const [featured, setFeatured] = useState(initialFeaturedArtworks);
+
+  // Embaralha as obras uma vez quando o componente monta
+  const shuffledArtworks = useMemo(() => {
+    return shuffleArray(artworksForDisplay);
+  }, []);
 
   useEffect(() => {
     document.title = "MAG - Moldura Arte e Galeria";
@@ -87,6 +106,7 @@ const Home = () => {
                     src={artwork.image}
                     alt={artwork.title}
                     className="w-full aspect-square object-cover rounded-sm shadow-frame"
+                    priority={index < 2} // Preload das 2 primeiras imagens do hero
                   />
                 </div>
               ))}
@@ -130,7 +150,7 @@ const Home = () => {
 
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent>
-              {artworksForDisplay.map((obra) => (
+              {shuffledArtworks.map((obra) => (
                 <CarouselItem key={obra.id} className="basis-full sm:basis-1/2 lg:basis-1/3">
                   <ArtworkCard
                     id={obra.id}

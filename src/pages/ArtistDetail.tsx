@@ -3,25 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import { artworks } from "@/data/artworks";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { ArtworkCard } from "@/components/ui/artwork-card";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 import Autoplay from "embla-carousel-autoplay";
-
-import artist1 from "@/assets/artists/artist-1.jpg";
-import artist2 from "@/assets/artists/artist-2.jpg";
-import artist3 from "@/assets/artists/artist-3.jpg";
-import artist4 from "@/assets/artists/artist-4.jpg";
-import artist5 from "@/assets/artists/artist-5.jpg";
-import artist6 from "@/assets/artists/artist-6.jpg";
+import allGalleries from "@/data/image-galleries.json";
+import { normalizeImage } from "@/lib/image-utils";
 
 const slugify = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-
-const photoMap: Record<string, string> = {
-  "ana-silva": artist1,
-  "pedro-rocha": artist2,
-  "mana-souza": artist3,
-  "beatriz-rocha": artist4,
-  "clara-nunes": artist5,
-  "rafael-dias": artist6,
-};
 
 const generateBio = (name: string, worksCount: number, types: string[]) => {
   const tipos = Array.from(new Set(types)).join(", ");
@@ -38,7 +25,14 @@ const ArtistDetail = () => {
     const worksCount = byArtist.length;
     const types = byArtist.map((a) => a.type);
     const bio = generateBio(name, worksCount, types);
-    const image = photoMap[id!] || artist1;
+    
+    // Pega a primeira imagem da primeira obra do artista
+    const firstWork = byArtist[0];
+    // @ts-ignore
+    const gallery = allGalleries[firstWork.tag] || [];
+    const firstImage = gallery.length > 0 ? gallery[0] : null;
+    const image = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
+    
     return { id: id!, name, works: byArtist, worksCount, bio, image };
   }, [id]);
 
@@ -54,10 +48,12 @@ const ArtistDetail = () => {
   }, [id]);
   const carouselWorks = useMemo(() => {
     if (!artistData) return [] as typeof artworks;
-    const base = artistData.works;
-    let list = [...base];
-    while (list.length < 6) list = [...list, ...base];
-    return list.slice(0, Math.max(6, base.length));
+    // Se houver apenas uma obra, retorna apenas ela (sem repetir)
+    if (artistData.works.length === 1) {
+      return artistData.works;
+    }
+    // Se houver mais de uma obra, retorna todas sem repetir
+    return artistData.works;
   }, [artistData]);
 
   if (!artistData) {
@@ -80,22 +76,51 @@ const ArtistDetail = () => {
         </article>
         <aside>
           <div className="bg-frame-gold/20 p-6 rounded-lg">
-            <img src={artistData.image} alt={`Retrato do artista ${artistData.name}`} className="w-full aspect-square object-cover rounded-sm shadow-frame" />
+            <OptimizedImage
+              src={artistData.image}
+              alt={`Obra do artista ${artistData.name}`}
+              className="w-full aspect-square object-cover rounded-sm shadow-frame"
+              priority={true}
+            />
           </div>
         </aside>
       </section>
 
       <section>
         <h2 className="font-playfair text-3xl text-primary mb-6">Obras do artista</h2>
-        <Carousel className="w-full" opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2500, stopOnMouseEnter: true, stopOnInteraction: false })]}>
-          <CarouselContent>
-            {carouselWorks.map((w, idx) => (
-              <CarouselItem key={`${w.id}-${idx}`} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                <ArtworkCard id={w.id} image={w.images[0]} title={w.title} artist={w.artist} size="compact" />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        {carouselWorks.length === 1 ? (
+          // Se houver apenas uma obra, mostra sem carrossel
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {carouselWorks.map((w) => {
+              // @ts-ignore
+              const gallery = allGalleries[w.tag] || [];
+              const firstImage = gallery.length > 0 ? gallery[0] : null;
+              const workImage = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
+              
+              return (
+                <ArtworkCard key={w.id} id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" />
+              );
+            })}
+          </div>
+        ) : (
+          // Se houver mais de uma obra, usa carrossel
+          <Carousel className="w-full" opts={{ align: "start", loop: true }} plugins={[Autoplay({ delay: 2500, stopOnMouseEnter: true, stopOnInteraction: false })]}>
+            <CarouselContent>
+              {carouselWorks.map((w, idx) => {
+                // @ts-ignore
+                const gallery = allGalleries[w.tag] || [];
+                const firstImage = gallery.length > 0 ? gallery[0] : null;
+                const workImage = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
+                
+                return (
+                  <CarouselItem key={`${w.id}-${idx}`} className="basis-full sm:basis-1/2 lg:basis-1/3">
+                    <ArtworkCard id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" />
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
+        )}
       </section>
     </div>
   );

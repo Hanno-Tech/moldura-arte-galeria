@@ -5,6 +5,7 @@ import { artworks } from "@/data/artworks";
 import { QuoteButton } from "@/components/ui/quote-button";
 import { useArtworkImages } from "@/hooks/useArtworkImages";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { normalizeImage } from "@/lib/image-utils";
 
 const WorkDetail = () => {
   const { id } = useParams();
@@ -50,9 +51,10 @@ const WorkDetail = () => {
             <div className="w-full aspect-[4/3] bg-gray-200 animate-pulse rounded-sm" />
           ) : (
             <OptimizedImage
-              src={imagesToShow[current]}
+              src={normalizeImage(imagesToShow[current])}
               alt={`${obra.title} - imagem ${current + 1}`}
               className="w-full aspect-[4/3] object-cover rounded-sm shadow-frame"
+              priority={current === 0} // Preload da primeira imagem principal
             />
           )}
         </div>
@@ -65,7 +67,7 @@ const WorkDetail = () => {
               className={`bg-frame-gold/20 p-2 rounded-md h-full transition-transform duration-200 hover:scale-105 ${current === idx ? 'ring-2 ring-accent' : ''}`}
               aria-label={`Mostrar variação ${idx + 1}`}
             >
-              <OptimizedImage src={src} alt={`Variação ${idx + 1} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
+              <OptimizedImage src={normalizeImage(src)} alt={`Variação ${idx + 1} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
             </button>
           ))}
         </div>
@@ -78,7 +80,7 @@ const WorkDetail = () => {
               className={`bg-frame-gold/20 p-2 rounded-md h-full transition-transform duration-200 hover:scale-105 ${current === idx + 2 ? 'ring-2 ring-accent' : ''}`}
               aria-label={`Mostrar variação ${idx + 3}`}
             >
-              <OptimizedImage src={src} alt={`Variação ${idx + 3} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
+              <OptimizedImage src={normalizeImage(src)} alt={`Variação ${idx + 3} de ${obra.title}`} className="w-full h-full object-cover rounded-sm" />
             </button>
           ))}
         </div>
@@ -95,10 +97,12 @@ const WorkDetail = () => {
           <h2 className="font-playfair text-2xl text-primary mb-4">Sobre a obra</h2>
           <p className="text-foreground/80 font-inter leading-relaxed mb-6">{obra.description}</p>
           
-          <div className="mb-6">
-            <p className="text-muted-foreground font-inter mb-2">Preço</p>
-            <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
-          </div>
+          {obra.price && obra.price <= 5000 && (
+            <div className="mb-6">
+              <p className="text-muted-foreground font-inter mb-2">Preço</p>
+              <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
+            </div>
+          )}
           
           <QuoteButton 
             variant="default" 
