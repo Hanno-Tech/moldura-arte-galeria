@@ -64,13 +64,13 @@ export const Footer = () => {
               <Link to="/" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
                 Início
               </Link>
-              {/* <Link to="/obras" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
+              <Link to="/obras" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
                 Obras
               </Link>
               <Link to="/artistas" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
                 Artistas
               </Link>
-              <Link to="/molduras" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
+              {/* <Link to="/molduras" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
                 Molduras
               </Link> */}
               <Link to="/sobre" className="block text-brand-green-foreground/80 hover:text-brand-green-foreground transition-colors font-inter">
