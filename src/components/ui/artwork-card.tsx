@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { OptimizedImage } from "./optimized-image";
 
 interface ArtworkCardProps {
   id: string;
-  image: string;
+  image: string | { full?: string; medium?: string; thumbnail?: string; url?: string };
   title: string;
   artist: string;
   className?: string;
@@ -12,7 +13,7 @@ interface ArtworkCardProps {
 
 export const ArtworkCard = ({ id, image, title, artist, className, size = "default" }: ArtworkCardProps) => {
   return (
-    <Link 
+    <Link
       to={`/obras/${id}`}
       className={cn(
         "group block transition-all duration-300 hover:-translate-y-1",
@@ -25,7 +26,7 @@ export const ArtworkCard = ({ id, image, title, artist, className, size = "defau
           size === "compact" ? "aspect-[4/3] p-4" : size === "large" ? "aspect-square p-8" : "aspect-square p-6"
         )}>
           <div className="bg-frame-gold/20 p-4 rounded-lg h-full">
-            <img
+            <OptimizedImage
               src={image}
               alt={title}
               className="w-full h-full object-cover rounded-sm shadow-frame"
