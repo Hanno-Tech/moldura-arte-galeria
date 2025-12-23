@@ -9,9 +9,10 @@ interface ArtworkCardProps {
   artist: string;
   className?: string;
   size?: "default" | "large" | "compact";
+  isPromotion?: boolean;
 }
 
-export const ArtworkCard = ({ id, image, title, artist, className, size = "default" }: ArtworkCardProps) => {
+export const ArtworkCard = ({ id, image, title, artist, className, size = "default", isPromotion }: ArtworkCardProps) => {
   return (
     <Link
       to={`/obras/${id}`}
@@ -25,6 +26,11 @@ export const ArtworkCard = ({ id, image, title, artist, className, size = "defau
           "relative overflow-hidden",
           size === "compact" ? "aspect-[4/3] p-4" : size === "large" ? "aspect-square p-8" : "aspect-square p-6"
         )}>
+          {isPromotion && (
+            <div className="absolute top-4 -right-8 z-10 bg-red-600 text-white text-[10px] uppercase font-bold py-1 w-32 text-center shadow-md tracking-wider rotate-45">
+              Promoção
+            </div>
+          )}
           <div className="bg-frame-gold/20 p-4 rounded-lg h-full">
             <OptimizedImage
               src={image}
@@ -33,7 +39,7 @@ export const ArtworkCard = ({ id, image, title, artist, className, size = "defau
             />
           </div>
         </div>
-        
+
         <div className={cn(
           "p-6 text-center",
           size === "large" ? "p-8" : ""

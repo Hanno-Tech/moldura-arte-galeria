@@ -95,17 +95,52 @@ const WorkDetail = () => {
       <section className="w-full">
         <div className="bg-card border border-border rounded-lg p-8 shadow-elegant">
           <h2 className="font-playfair text-2xl text-primary mb-4">Sobre a obra</h2>
-          <p className="text-foreground/80 font-inter leading-relaxed mb-6">{obra.description}</p>
-          
-          {obra.price && obra.price <= 5000 && (
-            <div className="mb-6">
-              <p className="text-muted-foreground font-inter mb-2">Preço</p>
-              <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
+          {obra.type && (
+            <div className="mb-4">
+              <p className="text-muted-foreground font-inter text-sm">Técnica</p>
+              <p className="text-foreground font-inter">{obra.type}</p>
             </div>
           )}
-          
-          <QuoteButton 
-            variant="default" 
+
+          {obra.size && (
+            <div className="mb-4">
+              <p className="text-muted-foreground font-inter text-sm">Dimensões</p>
+              <p className="text-foreground font-inter">{obra.size}</p>
+            </div>
+          )}
+
+          {obra.size_with_frame && (
+            <div className="mb-6">
+              <p className="text-muted-foreground font-inter text-sm">Dimensões com moldura</p>
+              <p className="text-foreground font-inter">{obra.size_with_frame}</p>
+            </div>
+          )}
+
+          {obra.is_promotion && obra.new_price ? (
+            <div className="mb-6">
+              <p className="text-muted-foreground font-inter mb-2">Preço</p>
+              <div className="flex items-baseline gap-3">
+                {obra.price && (
+                  <p className="text-muted-foreground/60 font-playfair text-xl line-through">
+                    R$ {obra.price.toLocaleString('pt-BR')}
+                  </p>
+                )}
+                <p className="text-primary font-playfair text-3xl font-bold">
+                  R$ {obra.new_price.toLocaleString('pt-BR')}
+                </p>
+              </div>
+            </div>
+          ) : (
+            obra.price && obra.price <= 5000 && (
+              <div className="mb-6">
+                <p className="text-muted-foreground font-inter mb-2">Preço</p>
+                <p className="text-primary font-playfair text-3xl">R$ {obra.price.toLocaleString('pt-BR')}</p>
+              </div>
+            )
+          )}
+
+          <QuoteButton
+            variant="default"
             className="font-inter"
             artworkTitle={obra.title}
             useWhatsApp={true}

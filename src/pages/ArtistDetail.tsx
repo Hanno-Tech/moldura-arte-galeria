@@ -24,15 +24,15 @@ const ArtistDetail = () => {
     const name = byArtist[0].artist;
     const worksCount = byArtist.length;
     const types = byArtist.map((a) => a.type);
-    const bio = generateBio(name, worksCount, types);
-    
+    const bio = byArtist[0].description || generateBio(name, worksCount, types);
+
     // Pega a primeira imagem da primeira obra do artista
     const firstWork = byArtist[0];
     // @ts-ignore
     const gallery = allGalleries[firstWork.tag] || [];
     const firstImage = gallery.length > 0 ? gallery[0] : null;
     const image = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
-    
+
     return { id: id!, name, works: byArtist, worksCount, bio, image };
   }, [id]);
 
@@ -71,8 +71,8 @@ const ArtistDetail = () => {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
         <article>
           <h1 className="font-playfair text-4xl text-primary mb-4">{artistData.name}</h1>
-          <p className="text-foreground font-inter leading-relaxed mb-4">{artistData.bio}</p>
-          <p className="text-muted-foreground font-inter">Nesta coleção, destacam-se obras como {artistData.works.map(w => w.title).slice(0,3).join(', ')}.</p>
+          <p className="text-foreground font-inter leading-relaxed mb-4 whitespace-pre-line">{artistData.bio}</p>
+          <p className="text-muted-foreground font-inter">Nesta coleção, destacam-se obras como {artistData.works.map(w => w.title).slice(0, 3).join(', ')}.</p>
         </article>
         <aside>
           <div className="bg-frame-gold/20 p-6 rounded-lg">
@@ -96,9 +96,9 @@ const ArtistDetail = () => {
               const gallery = allGalleries[w.tag] || [];
               const firstImage = gallery.length > 0 ? gallery[0] : null;
               const workImage = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
-              
+
               return (
-                <ArtworkCard key={w.id} id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" />
+                <ArtworkCard key={w.id} id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" isPromotion={w.is_promotion} />
               );
             })}
           </div>
@@ -111,10 +111,10 @@ const ArtistDetail = () => {
                 const gallery = allGalleries[w.tag] || [];
                 const firstImage = gallery.length > 0 ? gallery[0] : null;
                 const workImage = firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`;
-                
+
                 return (
                   <CarouselItem key={`${w.id}-${idx}`} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                    <ArtworkCard id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" />
+                    <ArtworkCard id={w.id} image={workImage} title={w.title} artist={w.artist} size="compact" isPromotion={w.is_promotion} />
                   </CarouselItem>
                 );
               })}

@@ -93,6 +93,7 @@ const Works = () => {
               image={a.image}
               title={a.title}
               artist={a.artist}
+              isPromotion={a.is_promotion}
             />
           ))}
         </div>

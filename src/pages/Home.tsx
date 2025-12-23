@@ -20,6 +20,7 @@ const artworksForDisplay = artworks.map(artwork => {
     image: firstImage ? normalizeImage(firstImage) : `https://placehold.co/800x600/eee/ccc?text=Imagem+Indisponível`,
     title: artwork.title,
     artist: artwork.artist,
+    is_promotion: artwork.is_promotion,
   };
 });
 
@@ -53,19 +54,19 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * featured.length);
-      
+
       setTimeout(() => {
         setFeatured((prev) => {
           const next = [...prev];
           const availableArtworks = artworksForDisplay.filter(obra =>
             !prev.some(f => f.id === obra.id)
           );
-          
+
           if (availableArtworks.length > 0) {
             const randomArtwork = availableArtworks[Math.floor(Math.random() * availableArtworks.length)];
             next[randomIndex] = randomArtwork;
           }
-          
+
           return next;
         });
       }, 2000);
@@ -87,19 +88,19 @@ const Home = () => {
                 <br />
                 faz sentir
               </h1>
-              <QuoteButton 
-                variant="default" 
+              <QuoteButton
+                variant="default"
                 className="font-inter font-medium text-sm bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3"
                 useWhatsApp={true}
               >
                 Consulta nossa curadoria
               </QuoteButton>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               {featured.map((artwork, index) => (
-                <div 
-                  key={`${artwork.id}-${index}`} 
+                <div
+                  key={`${artwork.id}-${index}`}
                   className="bg-frame-gold/30 p-4 rounded-lg transition-transform duration-300"
                 >
                   <OptimizedImage
@@ -127,7 +128,7 @@ const Home = () => {
                 A MAG nasce para transformar paredes em experiências que fazem sentir. Há 25 anos, a mesma família aplica qualidade apurada e calor humano para que qualquer superfície — em casa ou no trabalho — acolha, inspire e reflita quem a pessoa é.
               </p>
             </div>
-            
+
             <div className="relative">
               <div className="bg-frame-gold/20 p-6 rounded-lg">
                 <OptimizedImage
@@ -158,6 +159,7 @@ const Home = () => {
                     title={obra.title}
                     artist={obra.artist}
                     size="compact"
+                    isPromotion={obra.is_promotion}
                   />
                 </CarouselItem>
               ))}
