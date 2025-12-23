@@ -219,7 +219,15 @@ Ao longo de sua carreira, Vera Sabino participou de mais de 60 exposições, tan
     size_with_frame: "66x66",
     tag: "1023",
     images: [],
-    description: `Biografia de Valda Costa`,
+    description: `Vivalda Terezinha da Costa, conhecida como Valda Costa, nasceu em Florianópolis, Santa Catarina, em 1951. Nascida no bairro da Coloninha, Valda mudou-se para o Morro do Mocotó, no centro de Florianópolis, aos 12 anos. Autodidata, sua paixão pela arte foi notada por Iracema Nunes Silva, que lhe cedeu um ateliê.
+
+    A obra de Valda Costa é marcada por retratar o cotidiano de Florianópolis, com foco nos morros, casarios e na cultura local.Suas pinturas frequentemente apresentavam a representatividade negra, e seu estilo era comparado a grandes nomes como Di Cavalcanti e Djanira.
+Ascensão e Desafios
+
+Valda Costa teve uma carreira de sucesso, com uma ascensão rápida no cenário artístico.No entanto, sua vida foi marcada por desafios pessoais, incluindo problemas financeiros e de saúde, que a levaram a uma morte prematura em 1993, aos 42 anos.
+
+Apesar da carreira curta, Valda Costa deixou um legado de mais de 800 obras.Seu trabalho é reconhecido por sua força e originalidade, e ela é considerada uma referência na arte de Santa Catarina.O Museu de Arte de Santa Catarina(MASC) possui obras da artista em seu acervo, e em 2023, um mural em sua homenagem foi inaugurado no centro de Florianópolis.
+Valda foi musa e modelo de Martinho de Haro, uma figura central em sua formação artística.`,
     year: 1991
   },
   {
