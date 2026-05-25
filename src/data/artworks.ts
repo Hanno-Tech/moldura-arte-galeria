@@ -185,29 +185,6 @@ Zélio Andrezzo também é coautor do livro "A cor das palavras" com Adriano Zan
     year: 2013
   },
   {
-    id: "10",
-    title: "A Deusa da Fertilidade",
-    artist: "Vera Sabino",
-    price: 32000,
-    new_price: 25600,
-    is_promotion: true,
-    type: "Acrílico",
-    size: "70x100",
-    size_with_frame: "101x131",
-    tag: "1020",
-    images: [],
-    description: `Vera Sabino, renomada artista plástica e folclorista brasileira, nasceu em 2 de novembro de 1949, em Florianópolis, Santa Catarina. Autodidata, ela desenvolveu um estilo artístico único, profundamente enraizado no folclore e na cultura de sua terra natal.
-
-O primeiro contato de Vera com a arte e a pintura ocorreu aos 8 anos de idade, em sua cidade natal.Aos 14 anos, ela demonstrou seu talento ao conquistar o primeiro lugar no Prêmio Desenho do Salão de Artes Plásticas para Novos, em Curitiba.Aos 18 anos, já estava completamente imersa no universo das artes, planejando sua primeira exposição individual na Ilha de Santa Catarina.
-
-A obra de Vera Sabino é nacionalmente reconhecida por retratar a rica cultura, tradições e costumes de Santa Catarina.Seus quadros são frequentemente inspirados nas histórias que ouvia na infância, como as lendas das bruxas de Cascaes, as narrativas da ilha de Florianópolis, figuras de santos, igrejas, flores e o universo feminino.Essa conexão profunda com o folclore catarinense confere uma identidade marcante à sua produção.
-
-A técnica que a consagrou é a utilização de tinta acrílica sobre eucatex, uma combinação que se tornou sua marca registrada e contribui para o estilo vibrante e expressivo de suas obras.
-
-Ao longo de sua carreira, Vera Sabino participou de mais de 60 exposições, tanto no Brasil quanto no exterior, incluindo mostras na França e nos Estados Unidos, o que demonstra seu reconhecimento internacional.Estima - se que a artista tenha produzido mais de 8 mil trabalhos, que estão espalhados por diversas regiões do mundo, como China, Açores, França e África do Sul.Ela também coleciona diversos prêmios, entre eles a Medalha de Mérito Cultural Cruz e Sousa.`,
-    year: null
-  },
-  {
     id: "11",
     title: "Mulher II",
     artist: "Valda Costa",
@@ -1722,21 +1699,6 @@ Nascido em Florianópolis, Digo Tertschitsch desenvolveu desde cedo um talento n
     images: [],
     description: ``,
     year: 2011
-  },
-  {
-    id: "88",
-    title: "Priscila Rogoski",
-    artist: "Priscila Rogoski",
-    price: 4900,
-    new_price: 3920,
-    is_promotion: true,
-    type: "Espatulado em Tela",
-    size: "90x150",
-    size_with_frame: "92x152",
-    tag: "1146",
-    images: [],
-    description: ``,
-    year: 2021
   },
   {
     id: "89",
