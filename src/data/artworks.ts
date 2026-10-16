@@ -289,21 +289,21 @@ Residindo atualmente em Florianópolis / SC, seu trabalho como pintora é um ref
     description: `Biografia de Marlete Tridapalli`,
     year: null
   },
-  {
-    id: "17",
-    title: "Marlete Tridapalli",
-    artist: "Marlete Tridapalli",
-    price: 4900,
-    new_price: 3430,
-    is_promotion: true,
-    type: "Acrílico",
-    size: "38x98",
-    size_with_frame: "62x122",
-    tag: "1032",
-    images: [],
-    description: `Biografia de Marlete Tridapalli`,
-    year: null
-  },
+//   {
+//     id: "17",
+//     title: "Marlete Tridapalli",
+//     artist: "Marlete Tridapalli",
+//     price: 4900,
+//     new_price: 3430,
+//     is_promotion: true,
+//     type: "Acrílico",
+//     size: "38x98",
+//     size_with_frame: "62x122",
+//     tag: "1032",
+//     images: [],
+//     description: `Biografia de Marlete Tridapalli`,
+//     year: null
+//   },
   {
     id: "18",
     title: "Marlete Tridapalli",
